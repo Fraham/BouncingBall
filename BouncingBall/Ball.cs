@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace BouncingBall
 {
@@ -71,12 +72,41 @@ namespace BouncingBall
         }
 
         /// <summary> 
-        /// Obtains the colour of this ball.        
+        /// Obtains the colour of this ball.
+        /// 
+        /// Returns a colour type instead of the text version.
         /// </summary>
-        /// <returns> A textual description of the colour of this ball.</returns>
-        public String getColour()
+        /// <returns> The colour of this ball.</returns>
+        public Color getColour()
         {
-            return colour;
+            if (colour == "BLACK")
+            {
+                return Color.Black;
+            }
+            else if (colour == "WHITE")
+            {
+                return Color.White;
+            }
+            else if (colour == "RED")
+            {
+                return Color.Red;
+            }
+            else if (colour == "GREEN")
+            {
+                return Color.Green;
+            }
+            else
+            {
+                try
+                {
+                    return Color.FromName(colour);
+                }
+                catch
+                {
+                    return Color.Black;
+                }
+            }
+            
         }
 
         /// <summary> 
