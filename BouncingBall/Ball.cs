@@ -98,15 +98,6 @@ namespace BouncingBall
         }
 
         /// <summary> 
-        /// Moves the current position of this Ball to the given X co-ordinate.       
-        /// </summary>
-        /// <param name = "x"> The new x co-ordinate of this ball.</param>
-        public void setXPosition(int x)
-        {
-            this.xPosition = x;
-        }
-
-        /// <summary> 
         /// Changes the current speed of this Ball to the given X speed.
         /// </summary>
         /// <param name = "x"> The new x speed of this ball.</param>

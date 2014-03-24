@@ -11,6 +11,9 @@ using System.Threading;
 
 namespace BouncingBall
 {
+    /// <summary>
+    ///  The game class, used to show and run the game.
+    /// </summary>
     public partial class frmBouncingBalls : Form
     {
         private List<Ball> balls = new List<Ball>();
@@ -20,6 +23,9 @@ namespace BouncingBall
         private bool left = false;
         private bool right = false;
 
+        /// <summary>
+        /// Instialise a new game.
+        /// </summary>
         public frmBouncingBalls()
         {
             InitializeComponent();
@@ -32,6 +38,9 @@ namespace BouncingBall
             drawIt();
         }
 
+        /// <summary>
+        /// Keeps the game running.
+        /// </summary>
         public void Game()
         {
             try
@@ -47,11 +56,17 @@ namespace BouncingBall
             }
         }
 
+        /// <summary>
+        /// Makes all the balls used in the game.
+        /// </summary>
         public void makingBalls()
         {
             balls.Add(new Ball(100, 100, 20, "WHITE", 20, 20));
         }
 
+        /// <summary>
+        /// Draws all the balls for each game tick.
+        /// </summary>
         private void drawIt()
         {
             Console.WriteLine(balls[0].getXPosition());
