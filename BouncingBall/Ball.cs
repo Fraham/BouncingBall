@@ -8,17 +8,17 @@ namespace BouncingBall
 {
     class Ball
     {
-        private double xPosition;
-        private double yPosition;
+        private int xPosition;
+        private int yPosition;
 
-        private double size;
+        private int size;
 
         private string colour;
 
-        private double xSpeed;
-        private double ySpeed;
+        private int xSpeed;
+        private int ySpeed;
 
-        public Ball(double _xPosition, double _yPosition, double _size, String _colour, double _xSpeed, double _ySpeed)
+        public Ball(int _xPosition, int _yPosition, int _size, String _colour, int _xSpeed, int _ySpeed)
         {
             xPosition = _xPosition;
             yPosition = _yPosition;
@@ -34,7 +34,7 @@ namespace BouncingBall
 	    * Obtains the current X position of this Ball.
 	    * @return the X coordinate of this Ball within the GameArena.
 	    */
-        public double getXPosition()
+        public int getXPosition()
         {
             return xPosition;
         }
@@ -43,7 +43,7 @@ namespace BouncingBall
          * Obtains the current Y position of this Ball.
          * @return the Y coordinate of this Ball within the GameArena.
          */
-        public double getYPosition()
+        public int getYPosition()
         {
             return yPosition;
         }
@@ -52,7 +52,7 @@ namespace BouncingBall
          * Obtains the size of this Ball.
          * @return the diameter of this Ball,in pixels.
          */
-        public double getSize()
+        public int getSize()
         {
             return size;
         }
@@ -70,7 +70,7 @@ namespace BouncingBall
          * Moves the current position of this Ball to the given X co-ordinate
          * @param x the new x co-ordinate of this Ball
          */
-        public void setXPosition(double x)
+        public void setXPosition(int x)
         {
             this.xPosition = x;
         }
@@ -79,7 +79,7 @@ namespace BouncingBall
          * Moves the current position of this Ball to the given Y co-ordinate
          * @param y the new y co-ordinate of this Ball
          */
-        public void setYPosition(double y)
+        public void setYPosition(int y)
         {
             this.yPosition = y;
         }
