@@ -85,6 +85,20 @@ namespace BouncingBall
         }
         #endregion
 
+        public void move(int height, int width)
+        {
+            if (xPosition + size > width || xPosition < 0)
+            {
+                xSpeed = -xSpeed;
+            }
 
+            if (yPosition + size > height || yPosition < 0)
+            {
+                ySpeed = -ySpeed;
+            }
+
+            xPosition += xSpeed;
+            yPosition += ySpeed;
+        }
     }
 }
