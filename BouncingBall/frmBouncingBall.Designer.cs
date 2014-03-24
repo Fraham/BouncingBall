@@ -37,6 +37,8 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "frmBouncingBalls";
             this.Text = "Bouncing Balls";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBouncingBalls_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmBouncingBalls_KeyUp);
             this.ResumeLayout(false);
 
         }

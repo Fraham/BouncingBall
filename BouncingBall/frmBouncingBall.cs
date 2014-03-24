@@ -74,5 +74,39 @@ namespace BouncingBall
             System.Drawing.Rectangle ball = new System.Drawing.Rectangle(balls[0].getXPosition(), balls[0].getYPosition(), balls[0].getSize(), balls[0].getSize());
             graphics.DrawEllipse(System.Drawing.Pens.Black, ball);
         }
+
+        /// <summary>
+        /// Setting the current keys that are pressed to true.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmBouncingBalls_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+                right = true;
+            if (e.KeyCode == Keys.Up)
+                up = true;
+            if (e.KeyCode == Keys.Left)
+                left = true;
+            if (e.KeyCode == Keys.Down)
+                down = true;
+        }
+
+        /// <summary>
+        /// When the keys are not pressed anymore, set them to false.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmBouncingBalls_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+                right = false;
+            if (e.KeyCode == Keys.Up)
+                up = false;
+            if (e.KeyCode == Keys.Left)
+                left = false;
+            if (e.KeyCode == Keys.Down)
+                down = false;
+        }
     }
 }
