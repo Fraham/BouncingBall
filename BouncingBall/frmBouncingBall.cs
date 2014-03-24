@@ -34,7 +34,7 @@ namespace BouncingBall
 
             //run.Start();
 
-            makingBalls();
+            addBalls();
             drawIt();
         }
 
@@ -59,9 +59,25 @@ namespace BouncingBall
         /// <summary>
         /// Makes all the balls used in the game.
         /// </summary>
-        public void makingBalls()
+        public void addBalls()
         {
             balls.Add(new Ball(100, 100, 20, "WHITE", 20, 20));
+        }
+
+        /// <summary>
+        /// Removes a ball from the game.
+        /// </summary>
+        /// <param name="b">The ball to be removed.</param>
+        public void removingBalls(Ball b)
+        {
+            try
+            {
+                balls.Remove(b);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to remove the ball", this.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

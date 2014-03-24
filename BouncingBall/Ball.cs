@@ -9,7 +9,7 @@ namespace BouncingBall
     /// <summary>
     /// An object used in 
     /// </summary>
-    class Ball
+    public class Ball
     {
         private int xPosition;
         private int yPosition;
