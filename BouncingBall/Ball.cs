@@ -27,5 +27,64 @@ namespace BouncingBall
             xSpeed = _xSpeed;
             ySpeed = _ySpeed;
         }
+
+        #region Getters and Setters
+
+        /**
+	    * Obtains the current X position of this Ball.
+	    * @return the X coordinate of this Ball within the GameArena.
+	    */
+        public double getXPosition()
+        {
+            return xPosition;
+        }
+
+        /**
+         * Obtains the current Y position of this Ball.
+         * @return the Y coordinate of this Ball within the GameArena.
+         */
+        public double getYPosition()
+        {
+            return yPosition;
+        }
+
+        /**
+         * Obtains the size of this Ball.
+         * @return the diameter of this Ball,in pixels.
+         */
+        public double getSize()
+        {
+            return size;
+        }
+
+        /**
+         * Obtains the colour of this Ball.
+         * @return a textual description of the colour of this Ball.
+         */
+        public String getColour()
+        {
+            return colour;
+        }
+
+        /**
+         * Moves the current position of this Ball to the given X co-ordinate
+         * @param x the new x co-ordinate of this Ball
+         */
+        public void setXPosition(double x)
+        {
+            this.xPosition = x;
+        }
+
+        /**
+         * Moves the current position of this Ball to the given Y co-ordinate
+         * @param y the new y co-ordinate of this Ball
+         */
+        public void setYPosition(double y)
+        {
+            this.yPosition = y;
+        }
+        #endregion
+
+
     }
 }
