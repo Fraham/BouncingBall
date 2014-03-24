@@ -98,12 +98,48 @@ namespace BouncingBall
         }
 
         /// <summary> 
-        /// Moves the current position of this Ball to the given X co-ordinate        
+        /// Moves the current position of this Ball to the given X co-ordinate.       
         /// </summary>
         /// <param name = "x"> The new x co-ordinate of this ball.</param>
         public void setXPosition(int x)
         {
             this.xPosition = x;
+        }
+
+        /// <summary> 
+        /// Changes the current speed of this Ball to the given X speed.
+        /// </summary>
+        /// <param name = "x"> The new x speed of this ball.</param>
+        public void setXSpeed(int x)
+        {
+            this.xSpeed = x;
+        }
+
+        /// <summary> 
+        /// Changes the current speed of this Ball to the given y speed.
+        /// </summary>
+        /// <param name = "y"> The new y speed of this ball.</param>
+        public void setYSpeed(int y)
+        {
+            this.ySpeed = y;
+        }
+
+        /// <summary>
+        /// Gets the x speed of the ball.
+        /// </summary>
+        /// <returns> The x speed of the ball.</returns>
+        public int getXSpeed()
+        {
+            return xSpeed;
+        }
+
+        /// <summary>
+        /// Gets the x speed of the ball.
+        /// </summary>
+        /// <returns> The x speed of the ball.</returns>
+        public int getYSpeed()
+        {
+            return ySpeed;
         }
         #endregion
 
