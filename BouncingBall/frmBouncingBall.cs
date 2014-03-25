@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Runtime.CompilerServices;
 
 namespace BouncingBall
 {
@@ -30,12 +31,13 @@ namespace BouncingBall
         {
             InitializeComponent();
 
-            Thread run = new Thread(new ThreadStart(Game));
+            //Thread run = new Thread(new ThreadStart(Game));
 
-            //run.Start();
+            backgroundWorker1.RunWorkerAsync();
 
             addBalls();
-            drawIt();
+
+            //run.Start();            
         }
 
         /// <summary>
@@ -43,17 +45,7 @@ namespace BouncingBall
         /// </summary>
         public void Game()
         {
-            try
-            {
-                while (true)
-                {
-                    Thread.Sleep(20);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
+            
         }
 
         /// <summary>
@@ -62,6 +54,7 @@ namespace BouncingBall
         public void addBalls()
         {
             balls.Add(new Ball(100, 100, 20, "RED", 20, 20));
+            balls.Add(new Ball(50, 50, 20, "BLUE", 20, 20));
         }
 
         /// <summary>
@@ -74,7 +67,7 @@ namespace BouncingBall
             {
                 balls.Remove(b);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Unable to remove the ball", this.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -85,7 +78,27 @@ namespace BouncingBall
         /// </summary>
         private void drawIt()
         {
-            this.Refresh();
+            //this.Refresh();
+
+            Bitmap buffer = new Bitmap(this.Width, this.Height);
+
+            using (Graphics g = Graphics.FromImage(buffer))
+            {
+                g.Clear(Color.Black);
+
+                foreach (Ball b in balls)
+                {
+                    System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.getXPosition(), b.getYPosition(), b.getSize(), b.getSize());
+
+                    Brush brush = new SolidBrush(b.getColour());
+
+                    g.FillEllipse(brush, ball);
+                }
+
+                g.Dispose();
+            }
+
+            this.BackgroundImage = buffer;
         }
 
         /// <summary>
@@ -122,26 +135,26 @@ namespace BouncingBall
                 down = false;
         }
 
-        /// <summary>
-        /// Draws all the balls.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmBouncingBalls_Paint(object sender, PaintEventArgs e)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            System.Drawing.Graphics graphics = this.CreateGraphics();
-
-            Rectangle background = new Rectangle(0, 0, this.Width, this.Height);
-
-            graphics.FillRectangle(new SolidBrush(Color.Black), background);
-
-            foreach (Ball b in balls)
+            try
             {
-                System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.getXPosition(), b.getYPosition(), b.getSize(), b.getSize());
+                while (true)
+                {
+                    foreach (Ball b in balls)
+                    {
+                        b.move(this.Height, this.Width);
+                    }
 
-                Brush brush = new SolidBrush(b.getColour());
+                    drawIt();
 
-                graphics.FillEllipse(brush, ball);
+                    Thread.Sleep(50);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error");
+                Console.WriteLine(ex.ToString());
             }
         }
     }
