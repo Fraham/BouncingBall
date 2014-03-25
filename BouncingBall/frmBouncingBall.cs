@@ -12,8 +12,15 @@ namespace BouncingBall
     /// </summary>
     public partial class frmBouncingBalls : Form
     {
-        private List<Ball> balls = new List<Ball>();
-        private Player player;
+        /// <summary>
+        /// Holds the balls in the game.
+        /// </summary>
+        public List<Ball> balls = new List<Ball>();
+
+        /// <summary>
+        /// Holds the player information in the same.
+        /// </summary>
+        public Player player;
 
         private bool down = false;
         private bool left = false;
@@ -26,8 +33,6 @@ namespace BouncingBall
         public frmBouncingBalls()
         {
             InitializeComponent();
-
-            //Thread run = new Thread(new ThreadStart(Game));
 
             backgroundWorker1.RunWorkerAsync();
 
@@ -139,6 +144,8 @@ namespace BouncingBall
             }
         }
 
+        #region KeyEvents
+
         /// <summary>
         /// Setting the current keys that are pressed to true.
         /// </summary>
@@ -174,6 +181,15 @@ namespace BouncingBall
         }
 
         /// <summary>
+        /// Returns true or false, if the down button is pressed or not.
+        /// </summary>
+        /// <returns>If pressed returns true, false otherwise</returns>
+        public bool DownPressed()
+        {
+            return down;
+        }
+
+        /// <summary>
         /// Returns true or false, if the left button is pressed or not.
         /// </summary>
         /// <returns>If pressed returns true, false otherwise</returns>
@@ -200,13 +216,6 @@ namespace BouncingBall
             return up;
         }
 
-        /// <summary>
-        /// Returns true or false, if the down button is pressed or not.
-        /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool DownPressed()
-        {
-            return down;
-        }
+        #endregion
     }
 }

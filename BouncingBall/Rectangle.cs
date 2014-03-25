@@ -5,7 +5,7 @@ namespace BouncingBall
     /// <summary>
     /// An object used in the game.
     /// </summary>
-    internal class Rectangle : Shape
+    public class Rectangle : Shape
     {
         /// <summary>
         /// Creating an instance of a rectangle.
@@ -21,6 +21,9 @@ namespace BouncingBall
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
         { }
 
+        /// <summary>
+        /// Creating an instance of a rectangle.
+        /// </summary>
         public Rectangle()
         { }
     }

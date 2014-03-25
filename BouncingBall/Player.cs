@@ -2,7 +2,10 @@
 
 namespace BouncingBall
 {
-    internal class Player : BouncingBall.Rectangle
+    /// <summary>
+    /// An object used in the game.
+    /// </summary>
+    public class Player : BouncingBall.Rectangle
     {
         /// <summary>
         /// Creating an instance of a player.
