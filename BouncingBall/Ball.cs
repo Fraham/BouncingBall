@@ -12,14 +12,11 @@ namespace BouncingBall
     /// </summary>
     public class Ball
     {
-        private int xPosition;
-        private int yPosition;
-
-        private int size;
-
         private string colour;
-
+        private int size;
+        private int xPosition;
         private int xSpeed;
+        private int yPosition;
         private int ySpeed;
 
 
@@ -43,33 +40,6 @@ namespace BouncingBall
         }
 
         #region Getters and Setters
-
-        /// <summary> 
-        /// Obtains the current X position of this ball.        
-        /// </summary>
-        /// <returns> The X coordinate of this Ball within the game.</returns>
-        public int getXPosition()
-        {
-            return xPosition;
-        }
-
-        /// <summary> 
-        /// Obtains the current Y position of this ball.        
-        /// </summary>
-        /// <returns> The Y coordinate of this ball within the game.</returns>
-        public int getYPosition()
-        {
-            return yPosition;
-        }
-
-        /// <summary> 
-        /// Obtains the size of this ball.        
-        /// </summary>
-        /// <returns> The diameter of this ball, in pixels.</returns>
-        public int getSize()
-        {
-            return size;
-        }
 
         /// <summary> 
         /// Obtains the colour of this ball.
@@ -106,7 +76,51 @@ namespace BouncingBall
                     return Color.Black;
                 }
             }
-            
+
+        }
+
+        /// <summary> 
+        /// Obtains the size of this ball.        
+        /// </summary>
+        /// <returns> The diameter of this ball, in pixels.</returns>
+        public int getSize()
+        {
+            return size;
+        }
+
+        /// <summary> 
+        /// Obtains the current X position of this ball.        
+        /// </summary>
+        /// <returns> The X coordinate of this Ball within the game.</returns>
+        public int getXPosition()
+        {
+            return xPosition;
+        }
+
+        /// <summary>
+        /// Gets the x speed of the ball.
+        /// </summary>
+        /// <returns> The x speed of the ball.</returns>
+        public int getXSpeed()
+        {
+            return xSpeed;
+        }
+
+        /// <summary> 
+        /// Obtains the current Y position of this ball.        
+        /// </summary>
+        /// <returns> The Y coordinate of this ball within the game.</returns>
+        public int getYPosition()
+        {
+            return yPosition;
+        }
+        /// <summary>
+        /// Gets the x speed of the ball.
+        /// </summary>
+        /// <returns> The x speed of the ball.</returns>
+        public int getYSpeed()
+        {
+            return ySpeed;
         }
 
         /// <summary> 
@@ -119,15 +133,6 @@ namespace BouncingBall
         }
 
         /// <summary> 
-        /// Moves the current position of this Ball to the given Y co-ordinate.      
-        /// </summary>
-        /// <param name = "y"> The new y co-ordinate of this ball.</param>
-        public void setYPosition(int y)
-        {
-            this.yPosition = y;
-        }
-
-        /// <summary> 
         /// Changes the current speed of this Ball to the given X speed.
         /// </summary>
         /// <param name = "x"> The new x speed of this ball.</param>
@@ -137,30 +142,20 @@ namespace BouncingBall
         }
 
         /// <summary> 
+        /// Moves the current position of this Ball to the given Y co-ordinate.      
+        /// </summary>
+        /// <param name = "y"> The new y co-ordinate of this ball.</param>
+        public void setYPosition(int y)
+        {
+            this.yPosition = y;
+        }
+        /// <summary> 
         /// Changes the current speed of this Ball to the given y speed.
         /// </summary>
         /// <param name = "y"> The new y speed of this ball.</param>
         public void setYSpeed(int y)
         {
             this.ySpeed = y;
-        }
-
-        /// <summary>
-        /// Gets the x speed of the ball.
-        /// </summary>
-        /// <returns> The x speed of the ball.</returns>
-        public int getXSpeed()
-        {
-            return xSpeed;
-        }
-
-        /// <summary>
-        /// Gets the x speed of the ball.
-        /// </summary>
-        /// <returns> The x speed of the ball.</returns>
-        public int getYSpeed()
-        {
-            return ySpeed;
         }
         #endregion
 

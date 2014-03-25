@@ -19,13 +19,12 @@ namespace BouncingBall
     {
         private List<Ball> balls = new List<Ball>();
 
-        private bool up = false;
         private bool down = false;
         private bool left = false;
         private bool right = false;
-
+        private bool up = false;
         /// <summary>
-        /// Instialise a new game.
+        /// Initialise a new game.
         /// </summary>
         public frmBouncingBalls()
         {
@@ -41,14 +40,6 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Keeps the game running.
-        /// </summary>
-        public void Game()
-        {
-            
-        }
-
-        /// <summary>
         /// Makes all the balls used in the game.
         /// </summary>
         public void addBalls()
@@ -57,6 +48,13 @@ namespace BouncingBall
             balls.Add(new Ball(50, 50, 20, "BLUE", 20, 20));
         }
 
+        /// <summary>
+        /// Keeps the game running.
+        /// </summary>
+        public void Game()
+        {
+            
+        }
         /// <summary>
         /// Removes a ball from the game.
         /// </summary>
@@ -74,12 +72,38 @@ namespace BouncingBall
         }
 
         /// <summary>
+        /// Keeps the thread going throughout the game.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                while (true)
+                {
+                    foreach (Ball b in balls)
+                    {
+                        b.move(this.Height, this.Width);
+                    }
+
+                    drawIt();
+
+                    Thread.Sleep(50);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error");
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        /// <summary>
         /// Draws all the balls for each game tick.
         /// </summary>
         private void drawIt()
         {
-            //this.Refresh();
-
             Bitmap buffer = new Bitmap(this.Width, this.Height);
 
             using (Graphics g = Graphics.FromImage(buffer))
@@ -133,29 +157,6 @@ namespace BouncingBall
                 left = false;
             if (e.KeyCode == Keys.Down)
                 down = false;
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            try
-            {
-                while (true)
-                {
-                    foreach (Ball b in balls)
-                    {
-                        b.move(this.Height, this.Width);
-                    }
-
-                    drawIt();
-
-                    Thread.Sleep(50);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error");
-                Console.WriteLine(ex.ToString());
-            }
         }
     }
 }
