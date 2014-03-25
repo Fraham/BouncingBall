@@ -28,14 +28,14 @@ namespace BouncingBall
         /// <returns> The diameter of this ball, in pixels.</returns>
         public int GetSize()
         {
-            return base.getHeight();
+            return base.GetHeight();
         }
 
         /// <summary>
         ///     Changes the current size of this ball to a given size.
         /// </summary>
         /// <param name="size">The new size of the ball.</param>
-        public void setSize(int size)
+        public void SetSize(int size)
         {
             base.SetHeight(size);
         }

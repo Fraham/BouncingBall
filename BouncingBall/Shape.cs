@@ -9,13 +9,12 @@ namespace BouncingBall
     public class Shape
     {
         private string _colour;
+        private int _height;
+        private int _width;
         private int _xPosition;
         private int _xSpeed;
         private int _yPosition;
         private int _ySpeed;
-        private int _width;
-        private int _height;
-
         /// <summary>
         ///     Creating an instance of a shape.
         /// </summary>
@@ -33,6 +32,8 @@ namespace BouncingBall
             _colour = colour.ToUpper();
             _xSpeed = xSpeed;
             _ySpeed = ySpeed;
+            _width = width;
+            _height = height;
         }
 
         /// <summary>
@@ -85,6 +86,24 @@ namespace BouncingBall
         }
 
         /// <summary>
+        ///     Obtains the current height of this shape.
+        /// </summary>
+        /// <returns> The height of this shape within the game.</returns>
+        public int GetHeight()
+        {
+            return _height;
+        }
+
+        /// <summary>
+        ///     Obtains the current height of this shape.
+        /// </summary>
+        /// <returns> The height of this shape within the game.</returns>
+        public int GetWidth()
+        {
+            return _width;
+        }
+
+        /// <summary>
         ///     Obtains the current X position of this shape.
         /// </summary>
         /// <returns> The X coordinate of this shape within the game.</returns>
@@ -121,6 +140,33 @@ namespace BouncingBall
         }
 
         /// <summary>
+        ///     Changes the current colour of this shape to the given colour.
+        /// </summary>
+        /// <param name="colour">The colour being change to.</param>
+        public void SetColour(String colour)
+        {
+            _colour = colour;
+        }
+
+        /// <summary>
+        ///     Changes the current height of this shape to the given height.
+        /// </summary>
+        /// <param name="height">The height being change to.</param>
+        public void SetHeight(int height)
+        {
+            _height = height;
+        }
+
+        /// <summary>
+        ///     Changes the current height of this shape to the given height.
+        /// </summary>
+        /// <param name="height">The height being change to.</param>
+        public void SetWidth(int width)
+        {
+            _width = width;
+        }
+
+        /// <summary>
         ///     Moves the current position of this shape to the given X co-ordinate.
         /// </summary>
         /// <param name="x"> The new x co-ordinate of this shape.</param>
@@ -154,15 +200,6 @@ namespace BouncingBall
         public void SetYSpeed(int y)
         {
             _ySpeed = y;
-        }
-
-        /// <summary>
-        ///     Changes the current colour of this shape to the given colour.
-        /// </summary>
-        /// <param name="colour">The colour being change to.</param>
-        public void SetColour(String colour)
-        {
-            _colour = colour;
         }
         #endregion Getters and Setters
 
