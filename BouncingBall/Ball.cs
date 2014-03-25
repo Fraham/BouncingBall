@@ -3,7 +3,7 @@
 namespace BouncingBall
 {
     /// <summary>
-    /// An object used in
+    /// An object used in the game.
     /// </summary>
     public class Ball : Shape
     {
