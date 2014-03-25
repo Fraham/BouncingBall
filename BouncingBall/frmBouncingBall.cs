@@ -61,7 +61,7 @@ namespace BouncingBall
         /// </summary>
         public void addBalls()
         {
-            balls.Add(new Ball(100, 100, 20, "WHITE", 20, 20));
+            balls.Add(new Ball(100, 100, 20, "RED", 20, 20));
         }
 
         /// <summary>
@@ -85,10 +85,7 @@ namespace BouncingBall
         /// </summary>
         private void drawIt()
         {
-            Console.WriteLine(balls[0].getXPosition());
-            System.Drawing.Graphics graphics = this.CreateGraphics();
-            System.Drawing.Rectangle ball = new System.Drawing.Rectangle(balls[0].getXPosition(), balls[0].getYPosition(), balls[0].getSize(), balls[0].getSize());
-            graphics.DrawEllipse(System.Drawing.Pens.Black, ball);
+            this.Refresh();
         }
 
         /// <summary>
@@ -123,6 +120,29 @@ namespace BouncingBall
                 left = false;
             if (e.KeyCode == Keys.Down)
                 down = false;
+        }
+
+        /// <summary>
+        /// Draws all the balls.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmBouncingBalls_Paint(object sender, PaintEventArgs e)
+        {
+            System.Drawing.Graphics graphics = this.CreateGraphics();
+
+            Rectangle background = new Rectangle(0, 0, this.Width, this.Height);
+
+            graphics.FillRectangle(new SolidBrush(Color.Black), background);
+
+            foreach (Ball b in balls)
+            {
+                System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.getXPosition(), b.getYPosition(), b.getSize(), b.getSize());
+
+                Brush brush = new SolidBrush(b.getColour());
+
+                graphics.FillEllipse(brush, ball);
+            }
         }
     }
 }
