@@ -13,6 +13,8 @@ namespace BouncingBall
         private int _xSpeed;
         private int _yPosition;
         private int _ySpeed;
+        private int _width;
+        private int _height;
 
         /// <summary>
         ///     Creating an instance of a shape.
@@ -22,7 +24,9 @@ namespace BouncingBall
         /// <param name="colour">The colour of the shape.</param>
         /// <param name="xSpeed">The speed of the shape in the x direction.</param>
         /// <param name="ySpeed">The speed of the shape in the y direction.</param>
-        public Shape(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed)
+        /// <param name="width">The width of the shape.</param>
+        /// <param name="height">The height of the shape.</param>
+        public Shape(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int width, int height)
         {
             _xPosition = xPosition;
             _yPosition = yPosition;
@@ -41,6 +45,8 @@ namespace BouncingBall
             _colour = "WHITE";
             _xSpeed = 0;
             _ySpeed = 0;
+            _width = 0;
+            _height = 0;
         }
 
         #region Getters and Setters
@@ -159,5 +165,27 @@ namespace BouncingBall
             _colour = colour;
         }
         #endregion Getters and Setters
+
+        /// <summary>
+        ///     Moves the ball one unit depending on the x and y speed.
+        ///     Makes sure the ball does not go outside the game area.
+        /// </summary>
+        /// <param name="gameHeight"> The height of the game.</param>
+        /// <param name="gameWidth"> The width of the game.</param>
+        public void Move(int gameHeight, int gameWidth)
+        {
+            if (_xPosition + _width > gameWidth || _xPosition - _width < 0)
+            {
+                _xSpeed = -_xSpeed;
+            }
+
+            if (_yPosition + _height > gameHeight || _yPosition - _height < 0)
+            {
+                _ySpeed = -_ySpeed;
+            }
+
+            _xPosition += _xSpeed;
+            _yPosition += _ySpeed;
+        }
     }
 }

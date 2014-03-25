@@ -8,8 +8,6 @@ namespace BouncingBall
     /// </summary>
     public class Ball : Shape
     {
-        private int _size;
-
         /// <summary>
         ///     Creating an instance of a ball.
         /// </summary>
@@ -19,10 +17,8 @@ namespace BouncingBall
         /// <param name="colour">The colour of the ball.</param>
         /// <param name="xSpeed">The speed of the ball in the x direction.</param>
         /// <param name="ySpeed">The speed of the ball in the y direction.</param>
-        public Ball(int xPosition, int yPosition, int size, String colour, int xSpeed, int ySpeed) : base(xPosition, yPosition, colour, xSpeed, ySpeed)
-        {
-            _size = size;
-        }
+        public Ball(int xPosition, int yPosition, int size, String colour, int xSpeed, int ySpeed) : base(xPosition, yPosition, colour, xSpeed, ySpeed, size, size)
+        { }
 
         #region Getters and Setters
 
@@ -32,7 +28,7 @@ namespace BouncingBall
         /// <returns> The diameter of this ball, in pixels.</returns>
         public int GetSize()
         {
-            return _size;
+            return base.getHeight();
         }
 
         /// <summary>
@@ -41,31 +37,9 @@ namespace BouncingBall
         /// <param name="size">The new size of the ball.</param>
         public void setSize(int size)
         {
-            _size = size;
+            base.SetHeight(size);
         }
 
         #endregion Getters and Setters
-
-        /// <summary>
-        ///     Moves the ball one unit depending on the x and y speed.
-        ///     Makes sure the ball does not go outside the game area.
-        /// </summary>
-        /// <param name="height"> The height of the game.</param>
-        /// <param name="width"> The width of the game.</param>
-        public void Move(int height, int width)
-        {
-            if (base.GetXPosition() + _size > width || base.GetXPosition() - _size < 0)
-            {
-                base.SetXSpeed(-base.GetXSpeed());
-            }
-
-            if (base.GetYPosition() + _size > height || base.GetYPosition() - _size < 0)
-            {
-                base.SetYSpeed(-base.GetYSpeed());
-            }
-
-            base.SetXPosition(base.GetXPosition() + base.GetXSpeed());
-            base.SetYPosition(base.GetYPosition() + base.GetYSpeed());
-        }
     }
 }
