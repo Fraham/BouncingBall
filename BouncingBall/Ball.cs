@@ -1,184 +1,191 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace BouncingBall
 {
     /// <summary>
-    /// An object used in 
+    ///     An object used in
     /// </summary>
     public class Ball
     {
-        private string colour;
-        private int size;
-        private int xPosition;
-        private int xSpeed;
-        private int yPosition;
-        private int ySpeed;
+        private string _colour;
+        private int _size;
+        private int _xPosition;
+        private int _xSpeed;
+        private int _yPosition;
+        private int _ySpeed;
 
-
-        /// <summary> 
-        /// Creating an instance of a ball.
-        /// </summary> 
-        /// <param name="_xPosition">The x position of the ball. Must be within border.</param>
-        /// <param name="_yPosition">The y position of the ball. Must be within border.</param>
-        /// <param name="_size">The size of the ball.</param>
-        /// <param name="_colour">The colour of the ball.</param>
-        /// <param name="_xSpeed">The speed of the ball in the x direction.</param>
-        /// <param name="_ySpeed">The speed of the ball in the y direction.</param>
-        public Ball(int _xPosition, int _yPosition, int _size, String _colour, int _xSpeed, int _ySpeed)
+        /// <summary>
+        ///     Creating an instance of a ball.
+        /// </summary>
+        /// <param name="xPosition">The x position of the ball. Must be within border.</param>
+        /// <param name="yPosition">The y position of the ball. Must be within border.</param>
+        /// <param name="size">The size of the ball.</param>
+        /// <param name="colour">The colour of the ball.</param>
+        /// <param name="xSpeed">The speed of the ball in the x direction.</param>
+        /// <param name="ySpeed">The speed of the ball in the y direction.</param>
+        public Ball(int xPosition, int yPosition, int size, String colour, int xSpeed, int ySpeed)
         {
-            xPosition = _xPosition;
-            yPosition = _yPosition;
-            size = _size;
-            colour = _colour.ToUpper();
-            xSpeed = _xSpeed;
-            ySpeed = _ySpeed;
+            _xPosition = xPosition;
+            _yPosition = yPosition;
+            _size = size;
+            _colour = colour.ToUpper();
+            _xSpeed = xSpeed;
+            _ySpeed = ySpeed;
         }
 
         #region Getters and Setters
 
-        /// <summary> 
-        /// Obtains the colour of this ball.
-        /// 
-        /// Returns a colour type instead of the text version.
+        /// <summary>
+        ///     Obtains the colour of this ball.
+        ///     Returns a colour type instead of the text version.
         /// </summary>
-        /// <returns> The colour of this ball.</returns>
-        public Color getColour()
+        /// <returns>The colour of this ball.</returns>
+        public Color GetColour()
         {
-            if (colour == "BLACK")
+            if (_colour == "BLACK")
             {
                 return Color.Black;
             }
-            else if (colour == "WHITE")
+            if (_colour == "WHITE")
             {
                 return Color.White;
             }
-            else if (colour == "RED")
+            if (_colour == "RED")
             {
                 return Color.Red;
             }
-            else if (colour == "GREEN")
+            if (_colour == "GREEN")
             {
                 return Color.Green;
             }
-            else
+            try
             {
-                try
-                {
-                    return Color.FromName(colour);
-                }
-                catch
-                {
-                    return Color.Black;
-                }
+                return Color.FromName(_colour);
             }
-
+            catch
+            {
+                return Color.Black;
+            }
         }
 
-        /// <summary> 
-        /// Obtains the size of this ball.        
+        /// <summary>
+        ///     Obtains the size of this ball.
         /// </summary>
         /// <returns> The diameter of this ball, in pixels.</returns>
-        public int getSize()
+        public int GetSize()
         {
-            return size;
+            return _size;
         }
 
-        /// <summary> 
-        /// Obtains the current X position of this ball.        
+        /// <summary>
+        ///     Obtains the current X position of this ball.
         /// </summary>
         /// <returns> The X coordinate of this Ball within the game.</returns>
-        public int getXPosition()
+        public int GetXPosition()
         {
-            return xPosition;
+            return _xPosition;
         }
 
         /// <summary>
-        /// Gets the x speed of the ball.
+        ///     Gets the x speed of the ball.
         /// </summary>
         /// <returns> The x speed of the ball.</returns>
-        public int getXSpeed()
+        public int GetXSpeed()
         {
-            return xSpeed;
+            return _xSpeed;
         }
 
-        /// <summary> 
-        /// Obtains the current Y position of this ball.        
+        /// <summary>
+        ///     Obtains the current Y position of this ball.
         /// </summary>
         /// <returns> The Y coordinate of this ball within the game.</returns>
-        public int getYPosition()
+        public int GetYPosition()
         {
-            return yPosition;
+            return _yPosition;
         }
+
         /// <summary>
-        /// Gets the x speed of the ball.
+        ///     Gets the x speed of the ball.
         /// </summary>
         /// <returns> The x speed of the ball.</returns>
-        public int getYSpeed()
+        public int GetYSpeed()
         {
-            return ySpeed;
+            return _ySpeed;
         }
 
-        /// <summary> 
-        /// Moves the current position of this Ball to the given X co-ordinate.
+        /// <summary>
+        ///     Moves the current position of this Ball to the given X co-ordinate.
         /// </summary>
-        /// <param name = "x"> The new x co-ordinate of this ball.</param>
-        public void setXPosition(int x)
+        /// <param name="x"> The new x co-ordinate of this ball.</param>
+        public void SetXPosition(int x)
         {
-            this.xPosition = x;
+            _xPosition = x;
         }
 
-        /// <summary> 
-        /// Changes the current speed of this Ball to the given X speed.
+        /// <summary>
+        ///     Changes the current speed of this Ball to the given X speed.
         /// </summary>
-        /// <param name = "x"> The new x speed of this ball.</param>
-        public void setXSpeed(int x)
+        /// <param name="x"> The new x speed of this ball.</param>
+        public void SetXSpeed(int x)
         {
-            this.xSpeed = x;
+            _xSpeed = x;
         }
 
-        /// <summary> 
-        /// Moves the current position of this Ball to the given Y co-ordinate.      
+        /// <summary>
+        ///     Moves the current position of this Ball to the given Y co-ordinate.
         /// </summary>
-        /// <param name = "y"> The new y co-ordinate of this ball.</param>
-        public void setYPosition(int y)
+        /// <param name="y"> The new y co-ordinate of this ball.</param>
+        public void SetYPosition(int y)
         {
-            this.yPosition = y;
+            _yPosition = y;
         }
-        /// <summary> 
-        /// Changes the current speed of this Ball to the given y speed.
-        /// </summary>
-        /// <param name = "y"> The new y speed of this ball.</param>
-        public void setYSpeed(int y)
-        {
-            this.ySpeed = y;
-        }
-        #endregion
 
-        /// <summary> 
-        /// Moves the ball one unit depending on the x and y speed.
-        /// Makes sure the ball does not go outside the game area.
+        /// <summary>
+        ///     Changes the current speed of this Ball to the given y speed.
         /// </summary>
-        /// <param name = "height"> The height of the game.</param>
-        /// <param name = "width"> The width of the game.</param>
-        public void move(int height, int width)
+        /// <param name="y"> The new y speed of this ball.</param>
+        public void SetYSpeed(int y)
         {
-            if (xPosition + size > width || xPosition - size < 0)
+            _ySpeed = y;
+        }
+
+        /// <summary>
+        ///     Changes the current colour of this ball to the given colour.
+        /// </summary>
+        /// <param name="colour">The colour being change to.</param>
+        public void SetColour(String colour)
+        {
+            _colour = colour;
+        }
+
+        public void setSize(int size)
+        {
+            _size = size;
+        }
+
+        #endregion Getters and Setters
+
+        /// <summary>
+        ///     Moves the ball one unit depending on the x and y speed.
+        ///     Makes sure the ball does not go outside the game area.
+        /// </summary>
+        /// <param name="height"> The height of the game.</param>
+        /// <param name="width"> The width of the game.</param>
+        public void Move(int height, int width)
+        {
+            if (_xPosition + _size > width || _xPosition - _size < 0)
             {
-                xSpeed = -xSpeed;
+                _xSpeed = -_xSpeed;
             }
 
-            if (yPosition + size > height || yPosition - size < 0)
+            if (_yPosition + _size > height || _yPosition - _size < 0)
             {
-                ySpeed = -ySpeed;
+                _ySpeed = -_ySpeed;
             }
 
-            xPosition += xSpeed;
-            yPosition += ySpeed;
+            _xPosition += _xSpeed;
+            _yPosition += _ySpeed;
         }
     }
 }

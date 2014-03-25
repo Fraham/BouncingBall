@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Threading;
-using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace BouncingBall
 {
@@ -23,6 +18,7 @@ namespace BouncingBall
         private bool left = false;
         private bool right = false;
         private bool up = false;
+
         /// <summary>
         /// Initialise a new game.
         /// </summary>
@@ -36,7 +32,7 @@ namespace BouncingBall
 
             addBalls();
 
-            //run.Start();            
+            //run.Start();
         }
 
         /// <summary>
@@ -48,13 +44,6 @@ namespace BouncingBall
             balls.Add(new Ball(50, 50, 20, "BLUE", 20, 20));
         }
 
-        /// <summary>
-        /// Keeps the game running.
-        /// </summary>
-        public void Game()
-        {
-            
-        }
         /// <summary>
         /// Removes a ball from the game.
         /// </summary>
@@ -84,7 +73,7 @@ namespace BouncingBall
                 {
                     foreach (Ball b in balls)
                     {
-                        b.move(this.Height, this.Width);
+                        b.Move(this.Height, this.Width);
                     }
 
                     drawIt();
@@ -112,9 +101,9 @@ namespace BouncingBall
 
                 foreach (Ball b in balls)
                 {
-                    System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.getXPosition(), b.getYPosition(), b.getSize(), b.getSize());
+                    System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.GetXPosition(), b.GetYPosition(), b.GetSize(), b.GetSize());
 
-                    Brush brush = new SolidBrush(b.getColour());
+                    Brush brush = new SolidBrush(b.GetColour());
 
                     g.FillEllipse(brush, ball);
                 }
