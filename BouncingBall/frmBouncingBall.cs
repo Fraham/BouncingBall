@@ -98,7 +98,7 @@ namespace BouncingBall
                 g.Dispose();
             }
 
-            this.BackgroundImage = buffer;
+            picGame.Image = buffer;
         }
 
         /// <summary>
