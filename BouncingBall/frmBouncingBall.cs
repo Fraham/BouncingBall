@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace BouncingBall
 {
     /// <summary>
-    ///  The game class, used to show and run the game.
+    /// The game class, used to show and run the game.
     /// </summary>
     public partial class frmBouncingBalls : Form
     {
@@ -64,7 +64,7 @@ namespace BouncingBall
         /// Keeps the thread going throughout the game.
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e">     </param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             try
@@ -118,7 +118,7 @@ namespace BouncingBall
         /// Setting the current keys that are pressed to true.
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e">     </param>
         private void frmBouncingBalls_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
@@ -135,7 +135,7 @@ namespace BouncingBall
         /// When the keys are not pressed anymore, set them to false.
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e">     </param>
         private void frmBouncingBalls_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
