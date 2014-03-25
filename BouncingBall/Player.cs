@@ -2,7 +2,7 @@
 
 namespace BouncingBall
 {
-    internal class Player : Rectangle
+    internal class Player : BouncingBall.Rectangle
     {
         /// <summary>
         /// Creating an instance of a player.

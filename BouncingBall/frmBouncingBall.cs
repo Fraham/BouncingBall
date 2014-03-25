@@ -13,6 +13,7 @@ namespace BouncingBall
     public partial class frmBouncingBalls : Form
     {
         private List<Ball> balls = new List<Ball>();
+        private Player player;
 
         private bool down = false;
         private bool left = false;
@@ -32,7 +33,7 @@ namespace BouncingBall
 
             addBalls();
 
-            //run.Start();
+            NewPlayer();
         }
 
         /// <summary>
@@ -42,6 +43,14 @@ namespace BouncingBall
         {
             balls.Add(new Ball(100, 100, "RED", 20, 20, 20));
             balls.Add(new Ball(50, 50, "BLUE", 20, 20, 20));
+        }
+
+        /// <summary>
+        /// Creates a new Player.
+        /// </summary>
+        public void NewPlayer()
+        {
+            player = new Player(10, 10, "PINK", 10, 10, 20, 20);
         }
 
         /// <summary>
@@ -76,6 +85,8 @@ namespace BouncingBall
                         b.Move(picGame.Height, picGame.Width);
                     }
 
+                    player.Move(picGame.Height, picGame.Width, this);
+
                     drawIt();
 
                     Thread.Sleep(50);
@@ -107,6 +118,12 @@ namespace BouncingBall
 
                     g.FillEllipse(brush, ball);
                 }
+
+                System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle(player.GetXPosition(), player.GetYPosition(), player.GetWidth(), player.GetHeight());
+
+                Brush brushrec = new SolidBrush(player.GetColour());
+
+                g.FillRectangle(brushrec, playerRec);
 
                 g.Dispose();
             }
