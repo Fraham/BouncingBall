@@ -104,31 +104,39 @@ namespace BouncingBall
         /// </summary>
         private void drawIt()
         {
-            Bitmap buffer = new Bitmap(this.Width, this.Height);
-
-            using (Graphics g = Graphics.FromImage(buffer))
+            try
             {
-                g.Clear(Color.Black);
+                Bitmap buffer = new Bitmap(this.Width, this.Height);
 
-                foreach (Ball b in balls)
+                using (Graphics g = Graphics.FromImage(buffer))
                 {
-                    System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.GetXPosition(), b.GetYPosition(), b.GetSize(), b.GetSize());
+                    g.Clear(Color.Black);
 
-                    Brush brush = new SolidBrush(b.GetColour());
+                    foreach (Ball b in balls)
+                    {
+                        System.Drawing.Rectangle ball = new System.Drawing.Rectangle(b.GetXPosition(), b.GetYPosition(), b.GetSize(), b.GetSize());
 
-                    g.FillEllipse(brush, ball);
+                        Brush brush = new SolidBrush(b.GetColour());
+
+                        g.FillEllipse(brush, ball);
+                    }
+
+                    System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle(player.GetXPosition(), player.GetYPosition(), player.GetWidth(), player.GetHeight());
+
+                    Brush brushrec = new SolidBrush(player.GetColour());
+
+                    g.FillRectangle(brushrec, playerRec);
+
+                    g.Dispose();
                 }
 
-                System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle(player.GetXPosition(), player.GetYPosition(), player.GetWidth(), player.GetHeight());
-
-                Brush brushrec = new SolidBrush(player.GetColour());
-
-                g.FillRectangle(brushrec, playerRec);
-
-                g.Dispose();
+                picGame.Image = buffer;
             }
-
-            picGame.Image = buffer;
+            catch (Exception ex)
+            {
+                MessageBox.Show("error");
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         /// <summary>
