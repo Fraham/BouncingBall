@@ -158,9 +158,9 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Changes the current height of this shape to the given height.
+        /// Changes the current width of this shape to the given width.
         /// </summary>
-        /// <param name="height">The height being change to.</param>
+        /// <param name="width">The width being change to.</param>
         public void SetWidth(int width)
         {
             _width = width;

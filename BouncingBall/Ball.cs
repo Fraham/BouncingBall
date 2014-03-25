@@ -16,7 +16,7 @@ namespace BouncingBall
         /// <param name="colour">   The colour of the ball.</param>
         /// <param name="xSpeed">   The speed of the ball in the x direction.</param>
         /// <param name="ySpeed">   The speed of the ball in the y direction.</param>
-        public Ball(int xPosition, int yPosition, int size, String colour, int xSpeed, int ySpeed)
+        public Ball(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int size)
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, size, size)
         { }
 

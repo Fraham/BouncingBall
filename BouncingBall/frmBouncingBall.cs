@@ -40,8 +40,8 @@ namespace BouncingBall
         /// </summary>
         public void addBalls()
         {
-            balls.Add(new Ball(100, 100, 20, "RED", 20, 20));
-            balls.Add(new Ball(50, 50, 20, "BLUE", 20, 20));
+            balls.Add(new Ball(100, 100, "RED", 20, 20, 20));
+            balls.Add(new Ball(50, 50, "BLUE", 20, 20, 20));
         }
 
         /// <summary>
@@ -146,6 +146,42 @@ namespace BouncingBall
                 left = false;
             if (e.KeyCode == Keys.Down)
                 down = false;
+        }
+
+        /// <summary>
+        /// Returns true or false, if the left button is pressed or not.
+        /// </summary>
+        /// <returns>If pressed returns true, false otherwise</returns>
+        public bool LeftPressed()
+        {
+            return left;
+        }
+
+        /// <summary>
+        /// Returns true or false, if the right button is pressed or not.
+        /// </summary>
+        /// <returns>If pressed returns true, false otherwise</returns>
+        public bool RightPressed()
+        {
+            return right;
+        }
+
+        /// <summary>
+        /// Returns true or false, if the up button is pressed or not.
+        /// </summary>
+        /// <returns>If pressed returns true, false otherwise</returns>
+        public bool UpPressed()
+        {
+            return up;
+        }
+
+        /// <summary>
+        /// Returns true or false, if the down button is pressed or not.
+        /// </summary>
+        /// <returns>If pressed returns true, false otherwise</returns>
+        public bool DownPressed()
+        {
+            return down;
         }
     }
 }
