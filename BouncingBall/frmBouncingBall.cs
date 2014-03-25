@@ -73,7 +73,7 @@ namespace BouncingBall
                 {
                     foreach (Ball b in balls)
                     {
-                        b.Move(this.Height, this.Width);
+                        b.Move(picGame.Height, picGame.Width);
                     }
 
                     drawIt();
