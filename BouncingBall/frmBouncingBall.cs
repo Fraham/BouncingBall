@@ -46,8 +46,14 @@ namespace BouncingBall
         /// </summary>
         public void addBalls()
         {
+            var rand = new Random();
+
+            int maxSize = 40;
+
             balls.Add(new Ball(100, 100, "RED", 20, 20, 20));
             balls.Add(new Ball(50, 50, "BLUE", 20, 20, 20));
+            for (int i = 0; i < 20; i++)
+                balls.Add(new Ball(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
         }
 
         /// <summary>
