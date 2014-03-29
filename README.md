@@ -1,4 +1,4 @@
 BouncingBall
 ============
 
-Bouncing Ball, a simple game from SCC 110 Java pratical work.
+Bouncing Ball, a simple game from SCC 110 Java pratical work. Done for now.
