@@ -24,7 +24,7 @@ namespace BouncingBall
 
         /// <summary>
         /// Property for the size of the ball.
-        /// 
+        ///
         /// Obtains the size of this ball.
         /// Changes the current size of this ball to a given size.
         /// </summary>
@@ -39,6 +39,7 @@ namespace BouncingBall
                 Height = value;
             }
         }
+
         #endregion Getters and Setters
     }
 }

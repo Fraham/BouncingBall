@@ -52,9 +52,10 @@ namespace BouncingBall
         }
 
         #region Getters and Setters
+
         /// <summary>
         /// Property for the colour of the shape.
-        /// 
+        ///
         /// Obtains the colour of this shape. Returns a colour type instead of the text version.
         /// Sets the colour
         /// </summary>
@@ -95,7 +96,7 @@ namespace BouncingBall
 
         /// <summary>
         /// Property for the height of the shape.
-        /// 
+        ///
         /// Obtains the current height of this shape.
         /// Changes the current height of this shape to the given height.
         /// </summary>
@@ -113,7 +114,7 @@ namespace BouncingBall
 
         /// <summary>
         /// Property for the width of the shape.
-        /// 
+        ///
         /// Obtains the current width of this shape.
         /// Changes the current width of this shape to the given width.
         /// </summary>
@@ -131,7 +132,7 @@ namespace BouncingBall
 
         /// <summary>
         /// Property for the X position of the shape.
-        /// 
+        ///
         /// Obtains the current X position of this shape.
         /// Changes the current X position of this shape to the given position.
         /// </summary>
@@ -148,26 +149,8 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Property for the Y position of the shape.
-        /// 
-        /// Obtains the current Y position of this shape.
-        /// Changes the current Y position of this shape to the given position.
-        /// </summary>
-        public float YPosition
-        {
-            get
-            {
-                return _yPosition;
-            }
-            set
-            {
-                this._yPosition = value;
-            }
-        }
-
-        /// <summary>
         /// Property for the X speed of the shape.
-        /// 
+        ///
         /// Obtains the current X speed of this shape.
         /// Changes the current X speed of this shape to the given speed.
         /// </summary>
@@ -184,8 +167,26 @@ namespace BouncingBall
         }
 
         /// <summary>
+        /// Property for the Y position of the shape.
+        ///
+        /// Obtains the current Y position of this shape.
+        /// Changes the current Y position of this shape to the given position.
+        /// </summary>
+        public float YPosition
+        {
+            get
+            {
+                return _yPosition;
+            }
+            set
+            {
+                this._yPosition = value;
+            }
+        }
+
+        /// <summary>
         /// Property for the Y speed of the shape.
-        /// 
+        ///
         /// Obtains the current Y speed of this shape.
         /// Changes the current Y speed of this shape to the given speed.
         /// </summary>
@@ -200,6 +201,7 @@ namespace BouncingBall
                 this._ySpeed = value;
             }
         }
+
         #endregion Getters and Setters
 
         /// <summary>
