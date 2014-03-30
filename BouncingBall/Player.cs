@@ -55,7 +55,7 @@ namespace BouncingBall
             }
             if (game.DownPressed())
             {
-                if (GetYPosition() < gameHeight - GetHeight())
+                if (GetYPosition() < gameHeight - Height)
                 {
                     yChange = GetYSpeed();
                 }

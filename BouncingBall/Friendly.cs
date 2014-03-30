@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BouncingBall
 {
-    class Friendly
+    class Friendly// : Rectangle
     {
 
     }

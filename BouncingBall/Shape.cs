@@ -9,12 +9,12 @@ namespace BouncingBall
     public class Shape
     {
         private string _colour;
-        private int _height;
-        private int _width;
-        private int _xPosition;
-        private int _xSpeed;
-        private int _yPosition;
-        private int _ySpeed;
+        private float _height;
+        private float _width;
+        private float _xPosition;
+        private float _xSpeed;
+        private float _yPosition;
+        private float _ySpeed;
 
         /// <summary>
         /// Creating an instance of a shape.
@@ -52,156 +52,154 @@ namespace BouncingBall
         }
 
         #region Getters and Setters
-
         /// <summary>
+        /// Property for the colour of the shape.
+        /// 
         /// Obtains the colour of this shape. Returns a colour type instead of the text version.
+        /// Sets the colour
         /// </summary>
-        /// <returns>The colour of this shape.</returns>
-        public Color GetColour()
+        public Color Colour
         {
-            if (_colour == "BLACK")
+            get
             {
-                return Color.Black;
+                if (_colour == "BLACK")
+                {
+                    return Color.Black;
+                }
+                if (_colour == "WHITE")
+                {
+                    return Color.White;
+                }
+                if (_colour == "RED")
+                {
+                    return Color.Red;
+                }
+                if (_colour == "GREEN")
+                {
+                    return Color.Green;
+                }
+                try
+                {
+                    return Color.FromName(_colour);
+                }
+                catch
+                {
+                    return Color.White;
+                }
             }
-            if (_colour == "WHITE")
+            set
             {
-                return Color.White;
-            }
-            if (_colour == "RED")
-            {
-                return Color.Red;
-            }
-            if (_colour == "GREEN")
-            {
-                return Color.Green;
-            }
-            try
-            {
-                return Color.FromName(_colour);
-            }
-            catch
-            {
-                return Color.White;
+                _colour = value.ToString();
             }
         }
 
         /// <summary>
+        /// Property for the height of the shape.
+        /// 
         /// Obtains the current height of this shape.
-        /// </summary>
-        /// <returns>The height of this shape within the game.</returns>
-        public int GetHeight()
-        {
-            return _height;
-        }
-
-        /// <summary>
-        /// Obtains the current height of this shape.
-        /// </summary>
-        /// <returns>The height of this shape within the game.</returns>
-        public int GetWidth()
-        {
-            return _width;
-        }
-
-        /// <summary>
-        /// Obtains the current X position of this shape.
-        /// </summary>
-        /// <returns>The X coordinate of this shape within the game.</returns>
-        public int GetXPosition()
-        {
-            return _xPosition;
-        }
-
-        /// <summary>
-        /// Gets the x speed of the shape.
-        /// </summary>
-        /// <returns>The x speed of the shape.</returns>
-        public int GetXSpeed()
-        {
-            return _xSpeed;
-        }
-
-        /// <summary>
-        /// Obtains the current Y position of this shape.
-        /// </summary>
-        /// <returns>The Y coordinate of this shape within the game.</returns>
-        public int GetYPosition()
-        {
-            return _yPosition;
-        }
-
-        /// <summary>
-        /// Gets the x speed of the shape.
-        /// </summary>
-        /// <returns>The x speed of the shape.</returns>
-        public int GetYSpeed()
-        {
-            return _ySpeed;
-        }
-
-        /// <summary>
-        /// Changes the current colour of this shape to the given colour.
-        /// </summary>
-        /// <param name="colour">The colour being change to.</param>
-        public void SetColour(String colour)
-        {
-            _colour = colour;
-        }
-
-        /// <summary>
         /// Changes the current height of this shape to the given height.
         /// </summary>
-        /// <param name="height">The height being change to.</param>
-        public void SetHeight(int height)
+        public float Height
         {
-            _height = height;
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                this._height = value;
+            }
         }
 
         /// <summary>
+        /// Property for the width of the shape.
+        /// 
+        /// Obtains the current width of this shape.
         /// Changes the current width of this shape to the given width.
         /// </summary>
-        /// <param name="width">The width being change to.</param>
-        public void SetWidth(int width)
+        public float Width
         {
-            _width = width;
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                this._width = value;
+            }
         }
 
         /// <summary>
-        /// Moves the current position of this shape to the given X co-ordinate.
+        /// Property for the X position of the shape.
+        /// 
+        /// Obtains the current X position of this shape.
+        /// Changes the current X position of this shape to the given position.
         /// </summary>
-        /// <param name="x">The new x co-ordinate of this shape.</param>
-        public void SetXPosition(int x)
+        public float XPosition
         {
-            _xPosition = x;
+            get
+            {
+                return _xPosition;
+            }
+            set
+            {
+                this._xPosition = value;
+            }
         }
 
         /// <summary>
-        /// Changes the current speed of this shape to the given X speed.
+        /// Property for the Y position of the shape.
+        /// 
+        /// Obtains the current Y position of this shape.
+        /// Changes the current Y position of this shape to the given position.
         /// </summary>
-        /// <param name="x">The new x speed of this shape.</param>
-        public void SetXSpeed(int x)
+        public float YPosition
         {
-            _xSpeed = x;
+            get
+            {
+                return _yPosition;
+            }
+            set
+            {
+                this._yPosition = value;
+            }
         }
 
         /// <summary>
-        /// Moves the current position of this shape to the given Y co-ordinate.
+        /// Property for the X speed of the shape.
+        /// 
+        /// Obtains the current X speed of this shape.
+        /// Changes the current X speed of this shape to the given speed.
         /// </summary>
-        /// <param name="y">The new y co-ordinate of this shape.</param>
-        public void SetYPosition(int y)
+        public float XSpeed
         {
-            _yPosition = y;
+            get
+            {
+                return _xSpeed;
+            }
+            set
+            {
+                this._xSpeed = value;
+            }
         }
 
         /// <summary>
-        /// Changes the current speed of this shape to the given y speed.
+        /// Property for the Y speed of the shape.
+        /// 
+        /// Obtains the current Y speed of this shape.
+        /// Changes the current Y speed of this shape to the given speed.
         /// </summary>
-        /// <param name="y">The new y speed of this shape.</param>
-        public void SetYSpeed(int y)
+        public float YSpeed
         {
-            _ySpeed = y;
+            get
+            {
+                return _ySpeed;
+            }
+            set
+            {
+                this._ySpeed = value;
+            }
         }
-
         #endregion Getters and Setters
 
         /// <summary>

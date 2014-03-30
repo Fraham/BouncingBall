@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BouncingBall
 {
-    class Enemy
+    class Enemy// : Ball
     {
 
     }
