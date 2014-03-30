@@ -29,40 +29,40 @@ namespace BouncingBall
         /// <param name="game">      The game being played</param>
         public void Move(int gameWidth, int gameHeight, frmBouncingBalls game)
         {
-            int xChange = 0;
-            int yChange = 0;
+            float xChange = 0;
+            float yChange = 0;
 
             if (game.LeftPressed())
             {
-                if (GetXPosition() > 0)
+                if (XPosition > 0)
                 {
-                    xChange = -GetXSpeed();
+                    xChange = -XSpeed;
                 }
             }
             if (game.RightPressed())
             {
-                if (GetXPosition() < gameWidth - GetWidth())
+                if (XPosition < gameWidth - Width)
                 {
-                    xChange = GetXSpeed();
+                    xChange = XSpeed;
                 }
             }
             if (game.UpPressed())
             {
-                if (GetYPosition() > 0)
+                if (YPosition > 0)
                 {
-                    yChange = -GetYSpeed();
+                    yChange = -YSpeed;
                 }
             }
             if (game.DownPressed())
             {
-                if (GetYPosition() < gameHeight - Height)
+                if (YPosition < gameHeight - Height)
                 {
-                    yChange = GetYSpeed();
+                    yChange = YSpeed;
                 }
             }
 
-            SetXPosition(GetXPosition() + xChange);
-            SetYPosition(GetYPosition() + yChange);
+            XPosition = (XPosition + xChange);
+            YPosition = (YPosition + yChange);
         }
     }
 }

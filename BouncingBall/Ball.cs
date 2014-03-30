@@ -26,9 +26,9 @@ namespace BouncingBall
         /// Obtains the size of this ball.
         /// </summary>
         /// <returns>The diameter of this ball, in pixels.</returns>
-        public int GetSize()
+        public float GetSize()
         {
-            return base.GetHeight();
+            return Height;
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace BouncingBall
         /// <param name="size">The new size of the ball.</param>
         public void SetSize(int size)
         {
-            base.SetHeight(size);
+            Height = size;
         }
 
         #endregion Getters and Setters
