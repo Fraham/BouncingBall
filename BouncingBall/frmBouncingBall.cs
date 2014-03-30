@@ -125,7 +125,7 @@ namespace BouncingBall
 
                     foreach (Ball b in balls)
                     {
-                        System.Drawing.Rectangle ball = new System.Drawing.Rectangle((int)b.XPosition, (int)b.YPosition, (int)b.GetSize(), (int)b.GetSize());
+                        System.Drawing.Rectangle ball = new System.Drawing.Rectangle((int)b.XPosition, (int)b.YPosition, (int)b.Size, (int)b.Size);
 
                         Brush brush = new SolidBrush(b.Colour);
 

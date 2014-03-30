@@ -23,23 +23,22 @@ namespace BouncingBall
         #region Getters and Setters
 
         /// <summary>
+        /// Property for the size of the ball.
+        /// 
         /// Obtains the size of this ball.
-        /// </summary>
-        /// <returns>The diameter of this ball, in pixels.</returns>
-        public float GetSize()
-        {
-            return Height;
-        }
-
-        /// <summary>
         /// Changes the current size of this ball to a given size.
         /// </summary>
-        /// <param name="size">The new size of the ball.</param>
-        public void SetSize(int size)
+        public float Size
         {
-            Height = size;
+            get
+            {
+                return Height;
+            }
+            set
+            {
+                Height = value;
+            }
         }
-
         #endregion Getters and Setters
     }
 }
