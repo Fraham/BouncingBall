@@ -39,7 +39,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picGame.Location = new System.Drawing.Point(0, 0);
             this.picGame.Name = "picGame";
-            this.picGame.Size = new System.Drawing.Size(588, 466);
+            this.picGame.Size = new System.Drawing.Size(583, 462);
             this.picGame.TabIndex = 0;
             this.picGame.TabStop = false;
             // 
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 462);
             this.Controls.Add(this.picGame);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmBouncingBalls";
             this.Text = "Bouncing Balls";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBouncingBalls_KeyDown);

@@ -30,11 +30,11 @@ namespace BouncingBall
         private bool up = false;
 
         /// <summary>
-        /// 
+        /// Creates a new instance of the game class.
         /// </summary>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="display"></param>
+        /// <param name="width">  The width of the game.</param>
+        /// <param name="height"> The height of the game.</param>
+        /// <param name="display">The form the game is displayed on.</param>
         public Game(float width, float height, frmBouncingBalls display)
         {
             Height = height;
@@ -165,10 +165,10 @@ namespace BouncingBall
                 {
                     foreach (Enemy en in enemies)
                     {
-                        en.Move(Height, Width);
+                        en.Move(Width, Height);
                     }
 
-                    player.Move(Height, Width, this);
+                    player.Move(Width, Height, this);
 
                     Thread drawThread = new Thread(new ThreadStart(DrawIt));
 

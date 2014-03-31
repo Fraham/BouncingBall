@@ -29,40 +29,50 @@ namespace BouncingBall
         /// <param name="game">      The game being played</param>
         public void Move(float gameWidth, float gameHeight, Game game)
         {
-            float xChange = 0;
-            float yChange = 0;
-
             if (game.Left)
             {
-                if (XPosition > 0)
+                if (XPosition - XSpeed > 0)
                 {
-                    xChange = -XSpeed;
+                    XPosition += -XSpeed;
+                }
+                else
+                {
+                    XPosition = 0;
                 }
             }
             if (game.Right)
             {
-                if (XPosition + Width < gameWidth)
+                if (XPosition + Width + XSpeed < gameWidth)
                 {
-                    xChange = XSpeed;
+                    XPosition += XSpeed;
+                }
+                else
+                {
+                    XPosition = gameWidth - Width;
                 }
             }
             if (game.Up)
             {
-                if (YPosition > 0)
+                if (YPosition - YSpeed > 0)
                 {
-                    yChange = -YSpeed;
+                    YPosition += -YSpeed;
+                }
+                else
+                {
+                    YPosition = 0;
                 }
             }
             if (game.Down)
             {
-                if (YPosition + Height < gameHeight)
+                if (YPosition + Height + YSpeed < gameHeight)
                 {
-                    yChange = YSpeed;
+                    YPosition += YSpeed;
+                }
+                else
+                {
+                    YPosition = gameHeight - Height;
                 }
             }
-
-            XPosition = (XPosition + xChange);
-            YPosition = (YPosition + yChange);
         }
     }
 }
