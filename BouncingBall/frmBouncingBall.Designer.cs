@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.picGame = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picGame)).BeginInit();
             this.SuspendLayout();
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // picGame
             // 
@@ -65,7 +60,6 @@
 
         #endregion
 
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox picGame;
 
 

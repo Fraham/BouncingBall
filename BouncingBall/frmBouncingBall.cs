@@ -40,8 +40,9 @@ namespace BouncingBall
 
             Thread gameThread = new Thread(new ThreadStart(Game));
 
+            gameThread.IsBackground = true;
+
             gameThread.Start();
-            //gameThread.Join();
         }
 
         /// <summary>
@@ -83,6 +84,9 @@ namespace BouncingBall
             }
         }
 
+        /// <summary>
+        /// Runs the game.
+        /// </summary>
         public void Game()
         {
             try
@@ -98,10 +102,10 @@ namespace BouncingBall
 
                     Thread drawThread = new Thread(new ThreadStart(DrawIt));
 
+                    drawThread.IsBackground = true;
+
                     drawThread.Start();
 
-                    //DrawIt();
-
                     Thread.Sleep(50);
                 }
             }
@@ -110,36 +114,6 @@ namespace BouncingBall
                 MessageBox.Show("error- fucking hell");
                 Console.WriteLine(ex.ToString());
             }
-        }
-
-        /// <summary>
-        /// Keeps the thread going throughout the game.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e">     </param>
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            /*try
-            {
-                while (true)
-                {
-                    foreach (Enemy en in enemies)
-                    {
-                        en.Move(picGame.Height, picGame.Width);
-                    }
-
-                    player.Move(picGame.Height, picGame.Width, this);
-
-                    drawIt();
-
-                    Thread.Sleep(50);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error- fucking hell");
-                Console.WriteLine(ex.ToString());
-            }*/
         }
 
         /// <summary>
