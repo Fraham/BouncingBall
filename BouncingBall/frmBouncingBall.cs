@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -46,29 +45,6 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Makes all the balls used in the game.
-        /// </summary>
-        public void AddEnemies()
-        {
-            var rand = new Random();
-
-            int maxSize = 40;
-
-            for (int i = 0; i < 20; i++)
-            {
-                enemies.Add(new Enemy(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
-            }
-        }
-
-        /// <summary>
-        /// Creates a new Player.
-        /// </summary>
-        public void NewPlayer()
-        {
-            player = new Player(10, 10, "PINK", 10, 10, 20, 20);
-        }
-
-        /// <summary>
         /// Removes a enemy from the game.
         /// </summary>
         /// <param name="en">The enemy to be removed.</param>
@@ -85,34 +61,17 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Runs the game.
+        /// Makes all the balls used in the game.
         /// </summary>
-        public void Game()
+        private void AddEnemies()
         {
-            try
+            var rand = new Random();
+
+            int maxSize = 40;
+
+            for (int i = 0; i < 20; i++)
             {
-                while (true)
-                {
-                    foreach (Enemy en in enemies)
-                    {
-                        en.Move(picGame.Height, picGame.Width);
-                    }
-
-                    player.Move(picGame.Height, picGame.Width, this);
-
-                    Thread drawThread = new Thread(new ThreadStart(DrawIt));
-
-                    drawThread.IsBackground = true;
-
-                    drawThread.Start();
-
-                    Thread.Sleep(50);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error- fucking hell");
-                Console.WriteLine(ex.ToString());
+                enemies.Add(new Enemy(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
             }
         }
 
@@ -156,6 +115,45 @@ namespace BouncingBall
             }
         }
 
+        /// <summary>
+        /// Runs the game.
+        /// </summary>
+        private void Game()
+        {
+            try
+            {
+                while (true)
+                {
+                    foreach (Enemy en in enemies)
+                    {
+                        en.Move(picGame.Height, picGame.Width);
+                    }
+
+                    player.Move(picGame.Height, picGame.Width, this);
+
+                    Thread drawThread = new Thread(new ThreadStart(DrawIt));
+
+                    drawThread.IsBackground = true;
+
+                    drawThread.Start();
+
+                    Thread.Sleep(50);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error- fucking hell");
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Creates a new Player.
+        /// </summary>
+        private void NewPlayer()
+        {
+            player = new Player(10, 10, "PINK", 10, 10, 20, 20);
+        }
         #region KeyEvents
 
         /// <summary>
