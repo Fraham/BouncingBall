@@ -49,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 462);
             this.Controls.Add(this.picGame);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmBouncingBalls";
             this.Text = "Bouncing Balls";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBouncingBalls_KeyDown);
