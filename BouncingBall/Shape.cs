@@ -212,12 +212,12 @@ namespace BouncingBall
         /// <param name="gameWidth"> The width of the game.</param>
         public void Move(int gameHeight, int gameWidth)
         {
-            if (_xPosition + _width > gameWidth || _xPosition - _width < 0)
+            if (_xPosition + _width + XSpeed > gameWidth || _xPosition + XSpeed < 0)
             {
                 _xSpeed = -_xSpeed;
             }
 
-            if (_yPosition + _height > gameHeight || _yPosition - _height < 0)
+            if (_yPosition + _height + _ySpeed > gameHeight || _yPosition + XSpeed < 0)
             {
                 _ySpeed = -_ySpeed;
             }
