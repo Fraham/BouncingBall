@@ -15,7 +15,7 @@ namespace BouncingBall
         /// <summary>
         /// Holds the balls in the game.
         /// </summary>
-        public List<Ball> balls = new List<Ball>();
+        public List<Enemy> enemies = new List<Enemy>();
 
         /// <summary>
         /// Holds the player information in the same.
@@ -36,7 +36,7 @@ namespace BouncingBall
 
             backgroundWorker1.RunWorkerAsync();
 
-            addBalls();
+            AddEnemies();
 
             NewPlayer();
         }
@@ -44,14 +44,14 @@ namespace BouncingBall
         /// <summary>
         /// Makes all the balls used in the game.
         /// </summary>
-        public void addBalls()
+        public void AddEnemies()
         {
             var rand = new Random();
 
             int maxSize = 40;
 
             for (int i = 0; i < 20; i++)
-                balls.Add(new Ball(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
+                enemies.Add(new Enemy(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
         }
 
         /// <summary>
@@ -66,11 +66,11 @@ namespace BouncingBall
         /// Removes a ball from the game.
         /// </summary>
         /// <param name="b">The ball to be removed.</param>
-        public void removingBalls(Ball b)
+        public void removingBalls(Enemy en)
         {
             try
             {
-                balls.Remove(b);
+                enemies.Remove(en);
             }
             catch
             {
@@ -89,9 +89,9 @@ namespace BouncingBall
             {
                 while (true)
                 {
-                    foreach (Ball b in balls)
+                    foreach (Enemy en in enemies)
                     {
-                        b.Move(picGame.Height, picGame.Width);
+                        en.Move(picGame.Height, picGame.Width);
                     }
 
                     player.Move(picGame.Height, picGame.Width, this);
@@ -121,13 +121,13 @@ namespace BouncingBall
                 {
                     g.Clear(Color.Black);
 
-                    foreach (Ball b in balls)
+                    foreach (Enemy en in enemies)
                     {
-                        System.Drawing.Rectangle ball = new System.Drawing.Rectangle((int)b.XPosition, (int)b.YPosition, (int)b.Size, (int)b.Size);
+                        System.Drawing.Rectangle enemy = new System.Drawing.Rectangle((int)en.XPosition, (int)en.YPosition, (int)en.Size, (int)en.Size);
 
-                        Brush brush = new SolidBrush(b.Colour);
+                        Brush brush = new SolidBrush(en.Colour);
 
-                        g.FillEllipse(brush, ball);
+                        g.FillEllipse(brush, enemy);
                     }
 
                     System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle((int)player.XPosition, (int)player.YPosition, (int)player.Width, (int)player.Height);

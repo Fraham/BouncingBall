@@ -5,7 +5,7 @@ namespace BouncingBall
     /// <summary>
     /// An object used in the game.
     /// </summary>
-    internal class Friendly : Rectangle
+    public class Friendly : Rectangle
     {
         /// <summary>
         /// Creating an instance of a friendly.

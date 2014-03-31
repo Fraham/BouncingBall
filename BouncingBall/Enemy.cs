@@ -5,7 +5,7 @@ namespace BouncingBall
     /// <summary>
     /// An object used in the game.
     /// </summary>
-    internal class Enemy : Ball
+    public class Enemy : Ball
     {
         /// <summary>
         /// Creating an instance of a enemy.
