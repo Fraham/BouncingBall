@@ -20,6 +20,14 @@ namespace BouncingBall
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, size, size)
         { }
 
+        /// <summary>
+        /// Creating an instance of a ball.
+        /// </summary>
+        public Ball()
+        {
+
+        }
+
         #region Getters and Setters
 
         /// <summary>

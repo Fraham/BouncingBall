@@ -54,11 +54,10 @@ namespace BouncingBall
         #region Getters and Setters
 
         /// <summary>
-        /// Property for the colour of the shape.
-        ///
-        /// Obtains the colour of this shape. Returns a colour type instead of the text version.
-        /// Sets the colour
-        /// </summary>
+        ///  Property for the colour of the shape.
+        ///  Obtains the colour of this shape. Returns a colour type instead of the text version.
+        ///  Sets the colour of the shape.
+        ///  </summary>
         public Color Colour
         {
             get
