@@ -61,6 +61,9 @@
 
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
         public System.Windows.Forms.PictureBox picGame;
 
 

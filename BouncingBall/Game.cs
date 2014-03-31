@@ -6,12 +6,11 @@ using System.Windows.Forms;
 
 namespace BouncingBall
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Game
     {
-        private float _width;
-        private float _height;
-        private frmBouncingBalls _displayForm;
-
         /// <summary>
         /// Holds the enemies in the game.
         /// </summary>
@@ -22,11 +21,20 @@ namespace BouncingBall
         /// </summary>
         public Player player;
 
+        private frmBouncingBalls _displayForm;
+        private float _height;
+        private float _width;
         private bool down = false;
         private bool left = false;
         private bool right = false;
         private bool up = false;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="display"></param>
         public Game(float width, float height, frmBouncingBalls display)
         {
             Height = height;
@@ -45,18 +53,9 @@ namespace BouncingBall
             gameThread.Start();
         }
 
-        public float Width
-        {
-            get
-            {
-                return _width;
-            }
-            set
-            {
-                this._width = value;
-            }
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public float Height
         {
             get
@@ -69,6 +68,20 @@ namespace BouncingBall
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public float Width
+        {
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                this._width = value;
+            }
+        }
         /// <summary>
         /// Removes a enemy from the game.
         /// </summary>
@@ -183,14 +196,8 @@ namespace BouncingBall
         #region KeyEvents
 
         /// <summary>
-        /// Returns true or false, if the down button is pressed or not.
+        ///
         /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool DownPressed()
-        {
-            return down;
-        }
-
         public bool Down
         {
             get
@@ -203,30 +210,9 @@ namespace BouncingBall
             }
         }
 
-        public bool Up
-        {
-            get
-            {
-                return up;
-            }
-            set
-            {
-                up = value;
-            }
-        }
-
-        public bool Right
-        {
-            get
-            {
-                return right;
-            }
-            set
-            {
-                right = value;
-            }
-        }
-
+        /// <summary>
+        ///
+        /// </summary>
         public bool Left
         {
             get
@@ -240,32 +226,34 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Returns true or false, if the left button is pressed or not.
+        ///
         /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool LeftPressed()
+        public bool Right
         {
-            return left;
+            get
+            {
+                return right;
+            }
+            set
+            {
+                right = value;
+            }
         }
 
         /// <summary>
-        /// Returns true or false, if the right button is pressed or not.
+        ///
         /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool RightPressed()
+        public bool Up
         {
-            return right;
+            get
+            {
+                return up;
+            }
+            set
+            {
+                up = value;
+            }
         }
-
-        /// <summary>
-        /// Returns true or false, if the up button is pressed or not.
-        /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool UpPressed()
-        {
-            return up;
-        }
-
         #endregion KeyEvents
     }
 }

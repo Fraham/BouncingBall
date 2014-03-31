@@ -32,28 +32,28 @@ namespace BouncingBall
             float xChange = 0;
             float yChange = 0;
 
-            if (game.LeftPressed())
+            if (game.Left)
             {
                 if (XPosition > 0)
                 {
                     xChange = -XSpeed;
                 }
             }
-            if (game.RightPressed())
+            if (game.Right)
             {
                 if (XPosition + Width < gameWidth)
                 {
                     xChange = XSpeed;
                 }
             }
-            if (game.UpPressed())
+            if (game.Up)
             {
                 if (YPosition > 0)
                 {
                     yChange = -YSpeed;
                 }
             }
-            if (game.DownPressed())
+            if (game.Down)
             {
                 if (YPosition + Height < gameHeight)
                 {
