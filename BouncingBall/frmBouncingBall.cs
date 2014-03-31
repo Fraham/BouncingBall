@@ -51,7 +51,9 @@ namespace BouncingBall
             int maxSize = 40;
 
             for (int i = 0; i < 20; i++)
+            {
                 enemies.Add(new Enemy(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
+            }
         }
 
         /// <summary>
@@ -63,10 +65,10 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// Removes a ball from the game.
+        /// Removes a enemy from the game.
         /// </summary>
-        /// <param name="b">The ball to be removed.</param>
-        public void removingBalls(Enemy en)
+        /// <param name="en">The enemy to be removed.</param>
+        public void RemovingEnemy(Enemy en)
         {
             try
             {
@@ -74,7 +76,7 @@ namespace BouncingBall
             }
             catch
             {
-                MessageBox.Show("Unable to remove the ball", this.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to remove the enemy", this.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -219,6 +221,7 @@ namespace BouncingBall
             if (e.KeyCode == Keys.Down)
                 down = false;
         }
+
         #endregion KeyEvents
     }
 }
