@@ -27,7 +27,7 @@ namespace BouncingBall
         /// <param name="gameWidth"> The width of the game.</param>
         /// <param name="gameHeight">The height of the game.</param>
         /// <param name="game">      The game being played</param>
-        public void Move(int gameWidth, int gameHeight, frmBouncingBalls game)
+        public void Move(float gameWidth, float gameHeight, Game game)
         {
             float xChange = 0;
             float yChange = 0;

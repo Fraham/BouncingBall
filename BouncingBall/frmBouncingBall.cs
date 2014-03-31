@@ -11,20 +11,7 @@ namespace BouncingBall
     /// </summary>
     public partial class frmBouncingBalls : Form
     {
-        /// <summary>
-        /// Holds the balls in the game.
-        /// </summary>
-        public List<Enemy> enemies = new List<Enemy>();
-
-        /// <summary>
-        /// Holds the player information in the same.
-        /// </summary>
-        public Player player;
-
-        private bool down = false;
-        private bool left = false;
-        private bool right = false;
-        private bool up = false;
+        private Game GameRun;
 
         /// <summary>
         /// Initialise a new game.
@@ -33,164 +20,10 @@ namespace BouncingBall
         {
             InitializeComponent();
 
-            AddEnemies();
-
-            NewPlayer();
-
-            Thread gameThread = new Thread(new ThreadStart(Game));
-
-            gameThread.IsBackground = true;
-
-            gameThread.Start();
+            GameRun = new Game(picGame.Width, picGame.Height, this);
         }
 
-        /// <summary>
-        /// Removes a enemy from the game.
-        /// </summary>
-        /// <param name="en">The enemy to be removed.</param>
-        public void RemovingEnemy(Enemy en)
-        {
-            try
-            {
-                enemies.Remove(en);
-            }
-            catch
-            {
-                MessageBox.Show("Unable to remove the enemy", this.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// Makes all the balls used in the game.
-        /// </summary>
-        private void AddEnemies()
-        {
-            var rand = new Random();
-
-            int maxSize = 40;
-
-            for (int i = 0; i < 20; i++)
-            {
-                enemies.Add(new Enemy(rand.Next(picGame.Width - maxSize), rand.Next(picGame.Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
-            }
-        }
-
-        /// <summary>
-        /// Draws all the balls for each game tick.
-        /// </summary>
-        private void DrawIt()
-        {
-            try
-            {
-                Bitmap buffer = new Bitmap(this.Width, this.Height);
-
-                using (Graphics g = Graphics.FromImage(buffer))
-                {
-                    g.Clear(Color.Black);
-
-                    foreach (Enemy en in enemies)
-                    {
-                        System.Drawing.Rectangle enemy = new System.Drawing.Rectangle((int)en.XPosition, (int)en.YPosition, (int)en.Size, (int)en.Size);
-
-                        Brush brush = new SolidBrush(en.Colour);
-
-                        g.FillEllipse(brush, enemy);
-                    }
-
-                    System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle((int)player.XPosition, (int)player.YPosition, (int)player.Width, (int)player.Height);
-
-                    Brush brushrec = new SolidBrush(player.Colour);
-
-                    g.FillRectangle(brushrec, playerRec);
-
-                    g.Dispose();
-                }
-
-                picGame.Image = buffer;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error - why");
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
-        /// <summary>
-        /// Runs the game.
-        /// </summary>
-        private void Game()
-        {
-            try
-            {
-                while (true)
-                {
-                    foreach (Enemy en in enemies)
-                    {
-                        en.Move(picGame.Height, picGame.Width);
-                    }
-
-                    player.Move(picGame.Height, picGame.Width, this);
-
-                    Thread drawThread = new Thread(new ThreadStart(DrawIt));
-
-                    drawThread.IsBackground = true;
-
-                    drawThread.Start();
-
-                    Thread.Sleep(50);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("error- fucking hell");
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
-        /// <summary>
-        /// Creates a new Player.
-        /// </summary>
-        private void NewPlayer()
-        {
-            player = new Player(10, 10, "PINK", 10, 10, 20, 20);
-        }
         #region KeyEvents
-
-        /// <summary>
-        /// Returns true or false, if the down button is pressed or not.
-        /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool DownPressed()
-        {
-            return down;
-        }
-
-        /// <summary>
-        /// Returns true or false, if the left button is pressed or not.
-        /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool LeftPressed()
-        {
-            return left;
-        }
-
-        /// <summary>
-        /// Returns true or false, if the right button is pressed or not.
-        /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool RightPressed()
-        {
-            return right;
-        }
-
-        /// <summary>
-        /// Returns true or false, if the up button is pressed or not.
-        /// </summary>
-        /// <returns>If pressed returns true, false otherwise</returns>
-        public bool UpPressed()
-        {
-            return up;
-        }
 
         /// <summary>
         /// Setting the current keys that are pressed to true.
@@ -200,13 +33,13 @@ namespace BouncingBall
         private void frmBouncingBalls_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
-                right = true;
+                GameRun.Right = true;
             if (e.KeyCode == Keys.Up)
-                up = true;
+                GameRun.Up = true;
             if (e.KeyCode == Keys.Left)
-                left = true;
+                GameRun.Left = true;
             if (e.KeyCode == Keys.Down)
-                down = true;
+                GameRun.Down = true;
         }
 
         /// <summary>
@@ -217,13 +50,13 @@ namespace BouncingBall
         private void frmBouncingBalls_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
-                right = false;
+                GameRun.Right = false;
             if (e.KeyCode == Keys.Up)
-                up = false;
+                GameRun.Up = false;
             if (e.KeyCode == Keys.Left)
-                left = false;
+                GameRun.Left = false;
             if (e.KeyCode == Keys.Down)
-                down = false;
+                GameRun.Down = false;
         }
 
         #endregion KeyEvents

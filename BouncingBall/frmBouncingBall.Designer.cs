@@ -60,7 +60,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picGame;
+        public System.Windows.Forms.PictureBox picGame;
+
 
 
     }
