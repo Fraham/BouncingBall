@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace BouncingBall
 {
     /// <summary>
-    /// 
+    /// Controls the actions in the game.
     /// </summary>
     public class Game
     {
@@ -54,7 +54,7 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the height of the game area.
         /// </summary>
         public float Height
         {
@@ -69,7 +69,7 @@ namespace BouncingBall
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the width of the game area.
         /// </summary>
         public float Width
         {
@@ -82,6 +82,7 @@ namespace BouncingBall
                 this._width = value;
             }
         }
+
         /// <summary>
         /// Removes a enemy from the game.
         /// </summary>
@@ -196,7 +197,7 @@ namespace BouncingBall
         #region KeyEvents
 
         /// <summary>
-        ///
+        /// Gets or sets if the down button is pressed.
         /// </summary>
         public bool Down
         {
@@ -211,7 +212,7 @@ namespace BouncingBall
         }
 
         /// <summary>
-        ///
+        /// Gets or sets if the left button is pressed.
         /// </summary>
         public bool Left
         {
@@ -226,7 +227,7 @@ namespace BouncingBall
         }
 
         /// <summary>
-        ///
+        /// Gets or sets if the right button is pressed.
         /// </summary>
         public bool Right
         {
@@ -241,7 +242,7 @@ namespace BouncingBall
         }
 
         /// <summary>
-        ///
+        /// Gets or sets if the up button is pressed.
         /// </summary>
         public bool Up
         {
@@ -254,6 +255,7 @@ namespace BouncingBall
                 up = value;
             }
         }
+
         #endregion KeyEvents
     }
 }
