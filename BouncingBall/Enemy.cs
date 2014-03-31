@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BouncingBall
 {
-    class Enemy : Ball
+    /// <summary>
+    /// An object used in the game.
+    /// </summary>
+    internal class Enemy : Ball
     {
         /// <summary>
         /// Creating an instance of a enemy.
@@ -26,7 +25,6 @@ namespace BouncingBall
         /// </summary>
         public Enemy()
         {
-
         }
     }
 }
