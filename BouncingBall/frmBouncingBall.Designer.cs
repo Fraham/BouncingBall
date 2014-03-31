@@ -44,7 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picGame.Location = new System.Drawing.Point(0, 0);
             this.picGame.Name = "picGame";
-            this.picGame.Size = new System.Drawing.Size(288, 266);
+            this.picGame.Size = new System.Drawing.Size(525, 462);
             this.picGame.TabIndex = 0;
             this.picGame.TabStop = false;
             // 
@@ -52,7 +52,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(521, 458);
             this.Controls.Add(this.picGame);
             this.Name = "frmBouncingBalls";
             this.Text = "Bouncing Balls";
