@@ -41,7 +41,7 @@ namespace BouncingBall
             }
             if (game.RightPressed())
             {
-                if (XPosition < gameWidth - Width)
+                if (XPosition + Width < gameWidth)
                 {
                     xChange = XSpeed;
                 }
@@ -55,7 +55,7 @@ namespace BouncingBall
             }
             if (game.DownPressed())
             {
-                if (YPosition < gameHeight - Height)
+                if (YPosition + Height < gameHeight)
                 {
                     yChange = YSpeed;
                 }

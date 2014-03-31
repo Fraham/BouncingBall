@@ -34,11 +34,14 @@ namespace BouncingBall
         {
             InitializeComponent();
 
-            backgroundWorker1.RunWorkerAsync();
-
             AddEnemies();
 
             NewPlayer();
+
+            Thread gameThread = new Thread(new ThreadStart(Game));
+
+            gameThread.Start();
+            //gameThread.Join();
         }
 
         /// <summary>
@@ -80,6 +83,35 @@ namespace BouncingBall
             }
         }
 
+        public void Game()
+        {
+            try
+            {
+                while (true)
+                {
+                    foreach (Enemy en in enemies)
+                    {
+                        en.Move(picGame.Height, picGame.Width);
+                    }
+
+                    player.Move(picGame.Height, picGame.Width, this);
+
+                    Thread drawThread = new Thread(new ThreadStart(DrawIt));
+
+                    drawThread.Start();
+
+                    //DrawIt();
+
+                    Thread.Sleep(50);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error- fucking hell");
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         /// <summary>
         /// Keeps the thread going throughout the game.
         /// </summary>
@@ -87,7 +119,7 @@ namespace BouncingBall
         /// <param name="e">     </param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
+            /*try
             {
                 while (true)
                 {
@@ -105,15 +137,15 @@ namespace BouncingBall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error");
+                MessageBox.Show("error- fucking hell");
                 Console.WriteLine(ex.ToString());
-            }
+            }*/
         }
 
         /// <summary>
         /// Draws all the balls for each game tick.
         /// </summary>
-        private void drawIt()
+        private void DrawIt()
         {
             try
             {
@@ -145,7 +177,7 @@ namespace BouncingBall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error");
+                MessageBox.Show("error - why");
                 Console.WriteLine(ex.ToString());
             }
         }
