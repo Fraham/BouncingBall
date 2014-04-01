@@ -25,7 +25,24 @@ namespace BouncingBall
         /// <returns>The minimum x value.</returns>
         public static float FindMinX(System.Drawing.Point[] points)
         {
-            return 0;
+            float min = points[0].X;
+            int length = points.Length;
+
+            if(length == 1)
+            {
+                return min;
+            }
+            else
+            {
+                for (int i = 1; i < length; i++)
+                {
+                    if (points[i].X < min)
+                    {
+                        min = points[i].X;
+                    }
+                }
+            }
+            return min;
         }
 
         /// <summary>
