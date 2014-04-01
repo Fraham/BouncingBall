@@ -52,7 +52,24 @@ namespace BouncingBall
         /// <returns>The minimum y value.</returns>
         public static float FindMinY(System.Drawing.Point[] points)
         {
-            return 0;
+            float min = points[0].Y;
+            int length = points.Length;
+
+            if (length == 1)
+            {
+                return min;
+            }
+            else
+            {
+                for (int i = 1; i < length; i++)
+                {
+                    if (points[i].Y < min)
+                    {
+                        min = points[i].Y;
+                    }
+                }
+            }
+            return min;
         }
 
         /// <summary>
