@@ -8,6 +8,8 @@ namespace BouncingBall
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
         { }
 
+        #region Width and Height Methods
+
         /// <summary>
         /// Finds the height value to be needed in creating a polygon.
         /// </summary>
@@ -28,7 +30,7 @@ namespace BouncingBall
             float min = points[0].X;
             int length = points.Length;
 
-            if(length == 1)
+            if (length == 1)
             {
                 return min;
             }
@@ -72,26 +74,14 @@ namespace BouncingBall
             return min;
         }
 
-        private static float FindMaxY(System.Drawing.Point[] points)
+        /// <summary>
+        /// Finds the width value to be needed in creating a polygon.
+        /// </summary>
+        /// <param name="points">The points of the polygon.</param>
+        /// <returns>The width of the polygon.</returns>
+        public static float FindWidth(System.Drawing.Point[] points)
         {
-            float max = points[0].Y;
-            int length = points.Length;
-
-            if (length == 1)
-            {
-                return max;
-            }
-            else
-            {
-                for (int i = 1; i < length; i++)
-                {
-                    if (points[i].Y > max)
-                    {
-                        max = points[i].Y;
-                    }
-                }
-            }
-            return max;
+            return FindMaxX(points) - FindMinX(points);
         }
 
         private static float FindMaxX(System.Drawing.Point[] points)
@@ -116,14 +106,28 @@ namespace BouncingBall
             return max;
         }
 
-        /// <summary>
-        /// Finds the width value to be needed in creating a polygon.
-        /// </summary>
-        /// <param name="points">The points of the polygon.</param>
-        /// <returns>The width of the polygon.</returns>
-        public static float FindWidth(System.Drawing.Point[] points)
+        private static float FindMaxY(System.Drawing.Point[] points)
         {
-            return FindMaxX(points) - FindMinX(points);
+            float max = points[0].Y;
+            int length = points.Length;
+
+            if (length == 1)
+            {
+                return max;
+            }
+            else
+            {
+                for (int i = 1; i < length; i++)
+                {
+                    if (points[i].Y > max)
+                    {
+                        max = points[i].Y;
+                    }
+                }
+            }
+            return max;
         }
+
+        #endregion Width and Height Methods
     }
 }
