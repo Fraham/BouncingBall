@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace BouncingBall
 {
@@ -25,6 +26,47 @@ namespace BouncingBall
         /// </summary>
         public Enemy()
         {
+        }
+
+        /// <summary>
+        /// If the enemy collides with the player.
+        /// </summary>
+        /// <param name="p">The player.</param>
+        /// <returns></returns>
+        public bool Collides(Player p)
+        {
+            return (XPosition < p.XPosition + p.Width &&
+            XPosition + Width > p.XPosition &&
+            YPosition < p.YPosition + p.Height &&
+            YPosition + Height > p.YPosition);
+        }
+
+        /// <summary>
+        /// Moves the ball one unit depending on the x and y speed. Makes sure the ball does not go
+        /// outside the game area.
+        /// </summary>
+        /// <param name="gameHeight">The height of the game.</param>
+        /// <param name="gameWidth"> The width of the game.</param>
+        /// 
+        public void Move(float gameWidth, float gameHeight, Game game)
+        {
+            if (XPosition + Width + XSpeed > gameWidth || XPosition + XSpeed < 0)
+            {
+                XSpeed = -XSpeed;
+            }
+
+            if (YPosition + Height + YSpeed > gameHeight || YPosition + XSpeed < 0)
+            {
+                YSpeed = -YSpeed;
+            }
+
+            XPosition += XSpeed;
+            YPosition += YSpeed;
+
+            if (Collides(game.player))
+            {
+                //remove enemy
+            }
         }
     }
 }

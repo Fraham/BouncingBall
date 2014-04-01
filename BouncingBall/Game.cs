@@ -165,7 +165,7 @@ namespace BouncingBall
                 {
                     foreach (Enemy en in enemies)
                     {
-                        en.Move(Width, Height);
+                        en.Move(Width, Height, this);
                     }
 
                     player.Move(Width, Height, this);
