@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace BouncingBall
 {
@@ -47,7 +46,7 @@ namespace BouncingBall
         /// </summary>
         /// <param name="gameHeight">The height of the game.</param>
         /// <param name="gameWidth"> The width of the game.</param>
-        /// 
+        /// <param name="game">      The game.</param>
         public void Move(float gameWidth, float gameHeight, Game game)
         {
             if (XPosition + Width + XSpeed > gameWidth || XPosition + XSpeed < 0)
