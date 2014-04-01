@@ -123,7 +123,7 @@ namespace BouncingBall
         /// <returns>The width of the polygon.</returns>
         public static float FindWidth(System.Drawing.Point[] points)
         {
-            return 0;
+            return FindMaxY(points) - FindMinY(points);
         }
     }
 }
