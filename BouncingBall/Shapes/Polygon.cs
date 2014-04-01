@@ -72,6 +72,50 @@ namespace BouncingBall
             return min;
         }
 
+        private float FindMaxY(System.Drawing.Point[] points)
+        {
+            float max = points[0].Y;
+            int length = points.Length;
+
+            if (length == 1)
+            {
+                return max;
+            }
+            else
+            {
+                for (int i = 1; i < length; i++)
+                {
+                    if (points[i].Y > max)
+                    {
+                        max = points[i].Y;
+                    }
+                }
+            }
+            return max;
+        }
+
+        private float FindMaxX(System.Drawing.Point[] points)
+        {
+            float max = points[0].Y;
+            int length = points.Length;
+
+            if (length == 1)
+            {
+                return max;
+            }
+            else
+            {
+                for (int i = 1; i < length; i++)
+                {
+                    if (points[i].Y > max)
+                    {
+                        max = points[i].Y;
+                    }
+                }
+            }
+            return max;
+        }
+
         /// <summary>
         /// Finds the width value to be needed in creating a polygon.
         /// </summary>
