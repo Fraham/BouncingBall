@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ball.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="Friendly.cs" />
+    <Compile Include="Shapes\Ball.cs" />
+    <Compile Include="Shapes\Enemy.cs" />
+    <Compile Include="Shapes\Friendly.cs" />
     <Compile Include="frmBouncingBall.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,11 +55,12 @@
       <DependentUpon>frmBouncingBall.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Shapes\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rectangle.cs" />
-    <Compile Include="Shape.cs" />
+    <Compile Include="Shapes\Polygon.cs" />
+    <Compile Include="Shapes\Rectangle.cs" />
+    <Compile Include="Shapes\Shape.cs" />
     <EmbeddedResource Include="frmBouncingBall.resx">
       <DependentUpon>frmBouncingBall.cs</DependentUpon>
     </EmbeddedResource>
