@@ -72,7 +72,7 @@ namespace BouncingBall
             return min;
         }
 
-        private float FindMaxY(System.Drawing.Point[] points)
+        private static float FindMaxY(System.Drawing.Point[] points)
         {
             float max = points[0].Y;
             int length = points.Length;
@@ -94,7 +94,7 @@ namespace BouncingBall
             return max;
         }
 
-        private float FindMaxX(System.Drawing.Point[] points)
+        private static float FindMaxX(System.Drawing.Point[] points)
         {
             float max = points[0].Y;
             int length = points.Length;
