@@ -127,6 +127,8 @@ namespace BouncingBall
                 {
                     g.Clear(Color.Black);
 
+                    #region Drawing Enemy
+
                     foreach (Enemy en in enemies)
                     {
                         System.Drawing.Rectangle enemy = new System.Drawing.Rectangle((int)en.XPosition, (int)en.YPosition, (int)en.Size, (int)en.Size);
@@ -136,13 +138,23 @@ namespace BouncingBall
                         g.FillEllipse(brush, enemy);
                     }
 
+                    #endregion Drawing Enemy
+
+                    #region Drawing Player
+
                     System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle((int)player.XPosition, (int)player.YPosition, (int)player.Width, (int)player.Height);
 
                     Brush brushrec = new SolidBrush(player.Colour);
 
                     g.FillRectangle(brushrec, playerRec);
 
-                    g.Dispose();
+                    #endregion Drawing Player
+
+                    #region Drawing Polygon
+
+
+
+                    #endregion Drawing Polygon
                 }
 
                 _displayForm.picGame.Image = buffer;
