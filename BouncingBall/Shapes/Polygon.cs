@@ -15,7 +15,7 @@ namespace BouncingBall
         /// <returns>The height of the polygon.</returns>
         public static float FindHeight(System.Drawing.Point[] points)
         {
-            return 0;
+            return FindMaxY(points) - FindMinY(points);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace BouncingBall
         /// <returns>The width of the polygon.</returns>
         public static float FindWidth(System.Drawing.Point[] points)
         {
-            return FindMaxY(points) - FindMinY(points);
+            return FindMaxX(points) - FindMinX(points);
         }
     }
 }
