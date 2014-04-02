@@ -25,6 +25,7 @@ namespace BouncingBall
         /// Holds the polygons in the game.
         /// </summary>
         public List<Polygon> polygons = new List<Polygon>();
+
         private frmBouncingBalls _displayForm;
         private float _height;
         private float _width;
@@ -187,6 +188,11 @@ namespace BouncingBall
                     foreach (Enemy en in enemies)
                     {
                         en.Move(Width, Height, this);
+                    }
+
+                    foreach (Polygon poly in polygons)
+                    {
+                        poly.Move(Width, Height);
                     }
 
                     player.Move(Width, Height, this);
