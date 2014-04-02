@@ -4,9 +4,23 @@ namespace BouncingBall
 {
     public class Polygon : Shape
     {
+        private System.Drawing.Point[] _points;
+
         public Polygon(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int height, int width, System.Drawing.Point[] points)
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
         { }
+
+        public System.Drawing.Point[] Points
+        {
+            get
+            {
+                return _points;
+            }
+            set
+            {
+                _points = value;
+            }
+        }
 
         #region Width and Height Methods
 

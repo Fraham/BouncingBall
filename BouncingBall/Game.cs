@@ -17,6 +17,11 @@ namespace BouncingBall
         public List<Enemy> enemies = new List<Enemy>();
 
         /// <summary>
+        /// Holds the polygons in the game.
+        /// </summary>
+        public List<Polygon> polygons = new List<Polygon>();
+
+        /// <summary>
         /// Holds the player information in the same.
         /// </summary>
         public Player player;
@@ -152,7 +157,12 @@ namespace BouncingBall
 
                     #region Drawing Polygon
 
+                    foreach (Polygon poly in polygons)
+                    {
+                        Brush brush = new SolidBrush(poly.Colour);
 
+                        g.FillPolygon(brush, poly.Points);
+                    }
 
                     #endregion Drawing Polygon
                 }
