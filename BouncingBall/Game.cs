@@ -17,15 +17,14 @@ namespace BouncingBall
         public List<Enemy> enemies = new List<Enemy>();
 
         /// <summary>
-        /// Holds the polygons in the game.
-        /// </summary>
-        public List<Polygon> polygons = new List<Polygon>();
-
-        /// <summary>
         /// Holds the player information in the same.
         /// </summary>
         public Player player;
 
+        /// <summary>
+        /// Holds the polygons in the game.
+        /// </summary>
+        public List<Polygon> polygons = new List<Polygon>();
         private frmBouncingBalls _displayForm;
         private float _height;
         private float _width;

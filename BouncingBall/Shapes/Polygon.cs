@@ -2,14 +2,31 @@
 
 namespace BouncingBall
 {
+    /// <summary>
+    /// An object used in the game.
+    /// </summary>
     public class Polygon : Shape
     {
         private System.Drawing.Point[] _points;
 
+        /// <summary>
+        /// Creating an instance of a polygon.
+        /// </summary>
+        /// <param name="xPosition">The x position of the polygon. Must be within border.</param>
+        /// <param name="yPosition">The y position of the polygon. Must be within border.</param>
+        /// <param name="height">   The height of the polygon.</param>
+        /// <param name="width">    The width of the polygon.</param>
+        /// <param name="colour">   The colour of the polygon.</param>
+        /// <param name="xSpeed">   The speed of the polygon in the x direction.</param>
+        /// <param name="ySpeed">   The speed of the polygon in the y direction.</param>
+        /// <param name="points">   The points of the polygon.</param>
         public Polygon(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int height, int width, System.Drawing.Point[] points)
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
         { }
 
+        /// <summary>
+        /// The points of the polygon.
+        /// </summary>
         public System.Drawing.Point[] Points
         {
             get
