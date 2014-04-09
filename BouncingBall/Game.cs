@@ -119,6 +119,11 @@ namespace BouncingBall
             }
         }
 
+        private void AddPolygons()
+        {
+
+        }
+
         /// <summary>
         /// Draws all the balls for each game tick.
         /// </summary>
