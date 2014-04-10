@@ -9,8 +9,8 @@ namespace BouncingBall
     public class Shape
     {
         private string _fillColour;
-        private string _outlineColour;
         private float _height;
+        private string _outlineColour;
         private float _width;
         private float _xPosition;
         private float _xSpeed;
@@ -20,13 +20,14 @@ namespace BouncingBall
         /// <summary>
         /// Creating an instance of a shape.
         /// </summary>
-        /// <param name="xPosition"> The x position of the shape. Must be within border.</param>
-        /// <param name="yPosition"> The y position of the shape. Must be within border.</param>
-        /// <param name="fillColour">The fill colour of the shape.</param>
-        /// <param name="xSpeed">    The speed of the shape in the x direction.</param>
-        /// <param name="ySpeed">    The speed of the shape in the y direction.</param>
-        /// <param name="width">     The width of the shape.</param>
-        /// <param name="height">    The height of the shape.</param>
+        /// <param name="xPosition">    The x position of the shape. Must be within border.</param>
+        /// <param name="yPosition">    The y position of the shape. Must be within border.</param>
+        /// <param name="fillColour">   The fill colour of the shape.</param>
+        /// <param name="xSpeed">       The speed of the shape in the x direction.</param>
+        /// <param name="ySpeed">       The speed of the shape in the y direction.</param>
+        /// <param name="width">        The width of the shape.</param>
+        /// <param name="height">       The height of the shape.</param>
+        /// <param name="outlineColour">The outline colour of the shape.</param>
         public Shape(int xPosition, int yPosition, String fillColour, int xSpeed, int ySpeed, int width, int height, String outlineColour)
         {
             _xPosition = xPosition;
@@ -96,6 +97,24 @@ namespace BouncingBall
         }
 
         /// <summary>
+        /// Property for the height of the shape.
+        ///
+        /// Obtains the current height of this shape.
+        /// Changes the current height of this shape to the given height.
+        /// </summary>
+        public float Height
+        {
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                this._height = value;
+            }
+        }
+
+        /// <summary>
         /// Property for the colour of the shape. Obtains the colour of this shape. Returns a colour
         /// type instead of the text version. Sets the colour of the shape.
         /// </summary>
@@ -133,25 +152,6 @@ namespace BouncingBall
                 _outlineColour = value.ToString();
             }
         }
-
-        /// <summary>
-        /// Property for the height of the shape.
-        ///
-        /// Obtains the current height of this shape.
-        /// Changes the current height of this shape to the given height.
-        /// </summary>
-        public float Height
-        {
-            get
-            {
-                return _height;
-            }
-            set
-            {
-                this._height = value;
-            }
-        }
-
         /// <summary>
         /// Property for the width of the shape.
         ///
