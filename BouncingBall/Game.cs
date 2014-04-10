@@ -51,6 +51,8 @@ namespace BouncingBall
 
             NewPlayer();
 
+            AddPolygons();
+
             Thread gameThread = new Thread(new ThreadStart(GameRunning));
 
             gameThread.IsBackground = true;
@@ -121,7 +123,15 @@ namespace BouncingBall
 
         private void AddPolygons()
         {
+            List<Point> points = new List<Point>();
 
+            points.Add(new Point(50, 50));
+            points.Add(new Point(100, 25));
+            points.Add(new Point(200, 5));
+            points.Add(new Point(250, 50));
+            points.Add(new Point(300, 100));
+
+            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "Orange", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray()));
         }
 
         /// <summary>

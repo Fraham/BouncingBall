@@ -22,7 +22,9 @@ namespace BouncingBall
         /// <param name="points">   The points of the polygon.</param>
         public Polygon(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int height, int width, System.Drawing.Point[] points)
             : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
-        { }
+        {
+            Points = points;
+        }
 
         /// <summary>
         /// The points of the polygon.
