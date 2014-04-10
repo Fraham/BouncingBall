@@ -16,12 +16,12 @@ namespace BouncingBall
         /// <param name="yPosition">The y position of the polygon. Must be within border.</param>
         /// <param name="height">   The height of the polygon.</param>
         /// <param name="width">    The width of the polygon.</param>
-        /// <param name="colour">   The colour of the polygon.</param>
+        /// <param name="fillColour">   The fill colour of the polygon.</param>
         /// <param name="xSpeed">   The speed of the polygon in the x direction.</param>
         /// <param name="ySpeed">   The speed of the polygon in the y direction.</param>
         /// <param name="points">   The points of the polygon.</param>
-        public Polygon(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int height, int width, System.Drawing.Point[] points)
-            : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
+        public Polygon(int xPosition, int yPosition, String fillColour, int xSpeed, int ySpeed, int height, int width, System.Drawing.Point[] points, String outlineColour)
+            : base(xPosition, yPosition, fillColour, xSpeed, ySpeed, height, width, outlineColour)
         {
             Points = points;
         }

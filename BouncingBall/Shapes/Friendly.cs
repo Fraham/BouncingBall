@@ -14,11 +14,11 @@ namespace BouncingBall
         /// <param name="yPosition">The y position of the friendly. Must be within border.</param>
         /// <param name="height">   The height of the friendly.</param>
         /// <param name="width">    The width of the friendly.</param>
-        /// <param name="colour">   The colour of the friendly.</param>
+        /// <param name="fillColour">   The fill colour of the friendly.</param>
         /// <param name="xSpeed">   The speed of the friendly in the x direction.</param>
         /// <param name="ySpeed">   The speed of the friendly in the y direction.</param>
-        public Friendly(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int height, int width)
-            : base(xPosition, yPosition, colour, xSpeed, ySpeed, height, width)
+        public Friendly(int xPosition, int yPosition, String fillColour, int xSpeed, int ySpeed, int height, int width, String outlineColour)
+            : base(xPosition, yPosition, fillColour, xSpeed, ySpeed, height, width, outlineColour)
         { }
 
         /// <summary>

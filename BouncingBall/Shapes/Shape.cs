@@ -8,7 +8,8 @@ namespace BouncingBall
     /// </summary>
     public class Shape
     {
-        private string _colour;
+        private string _fillColour;
+        private string _outlineColour;
         private float _height;
         private float _width;
         private float _xPosition;
@@ -19,22 +20,23 @@ namespace BouncingBall
         /// <summary>
         /// Creating an instance of a shape.
         /// </summary>
-        /// <param name="xPosition">The x position of the shape. Must be within border.</param>
-        /// <param name="yPosition">The y position of the shape. Must be within border.</param>
-        /// <param name="colour">   The colour of the shape.</param>
-        /// <param name="xSpeed">   The speed of the shape in the x direction.</param>
-        /// <param name="ySpeed">   The speed of the shape in the y direction.</param>
-        /// <param name="width">    The width of the shape.</param>
-        /// <param name="height">   The height of the shape.</param>
-        public Shape(int xPosition, int yPosition, String colour, int xSpeed, int ySpeed, int width, int height)
+        /// <param name="xPosition"> The x position of the shape. Must be within border.</param>
+        /// <param name="yPosition"> The y position of the shape. Must be within border.</param>
+        /// <param name="fillColour">The fill colour of the shape.</param>
+        /// <param name="xSpeed">    The speed of the shape in the x direction.</param>
+        /// <param name="ySpeed">    The speed of the shape in the y direction.</param>
+        /// <param name="width">     The width of the shape.</param>
+        /// <param name="height">    The height of the shape.</param>
+        public Shape(int xPosition, int yPosition, String fillColour, int xSpeed, int ySpeed, int width, int height, String outlineColour)
         {
             _xPosition = xPosition;
             _yPosition = yPosition;
-            _colour = colour.ToUpper();
+            _fillColour = fillColour.ToUpper();
             _xSpeed = xSpeed;
             _ySpeed = ySpeed;
             _width = width;
             _height = height;
+            _outlineColour = outlineColour;
         }
 
         /// <summary>
@@ -44,43 +46,43 @@ namespace BouncingBall
         {
             _xPosition = 0;
             _yPosition = 0;
-            _colour = "WHITE";
+            _fillColour = "BLACK";
             _xSpeed = 0;
             _ySpeed = 0;
             _width = 0;
             _height = 0;
+            _outlineColour = "White";
         }
 
         #region Getters and Setters
 
         /// <summary>
-        ///  Property for the colour of the shape.
-        ///  Obtains the colour of this shape. Returns a colour type instead of the text version.
-        ///  Sets the colour of the shape.
-        ///  </summary>
-        public Color Colour
+        /// Property for the colour of the shape. Obtains the colour of this shape. Returns a colour
+        /// type instead of the text version. Sets the colour of the shape.
+        /// </summary>
+        public Color FillColour
         {
             get
             {
-                if (_colour == "BLACK")
+                if (_fillColour == "BLACK")
                 {
                     return Color.Black;
                 }
-                if (_colour == "WHITE")
+                if (_fillColour == "WHITE")
                 {
                     return Color.White;
                 }
-                if (_colour == "RED")
+                if (_fillColour == "RED")
                 {
                     return Color.Red;
                 }
-                if (_colour == "GREEN")
+                if (_fillColour == "GREEN")
                 {
                     return Color.Green;
                 }
                 try
                 {
-                    return Color.FromName(_colour);
+                    return Color.FromName(_fillColour);
                 }
                 catch
                 {
@@ -89,7 +91,46 @@ namespace BouncingBall
             }
             set
             {
-                _colour = value.ToString();
+                _fillColour = value.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Property for the colour of the shape. Obtains the colour of this shape. Returns a colour
+        /// type instead of the text version. Sets the colour of the shape.
+        /// </summary>
+        public Color OutlineColour
+        {
+            get
+            {
+                if (_outlineColour == "BLACK")
+                {
+                    return Color.Black;
+                }
+                if (_outlineColour == "WHITE")
+                {
+                    return Color.White;
+                }
+                if (_outlineColour == "RED")
+                {
+                    return Color.Red;
+                }
+                if (_outlineColour == "GREEN")
+                {
+                    return Color.Green;
+                }
+                try
+                {
+                    return Color.FromName(_outlineColour);
+                }
+                catch
+                {
+                    return Color.White;
+                }
+            }
+            set
+            {
+                _outlineColour = value.ToString();
             }
         }
 

@@ -117,7 +117,7 @@ namespace BouncingBall
 
             for (int i = 0; i < 20; i++)
             {
-                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize)));
+                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize), "PURPLE"));
             }
         }
 
@@ -131,7 +131,7 @@ namespace BouncingBall
             points.Add(new Point(250, 50));
             points.Add(new Point(300, 100));
 
-            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "Orange", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray()));
+            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "Orange", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "BLUE"));
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace BouncingBall
                     {
                         System.Drawing.Rectangle enemy = new System.Drawing.Rectangle((int)en.XPosition, (int)en.YPosition, (int)en.Size, (int)en.Size);
 
-                        Brush brush = new SolidBrush(en.Colour);
+                        Brush brush = new SolidBrush(en.FillColour);
 
                         g.FillEllipse(brush, enemy);
                     }
@@ -164,7 +164,7 @@ namespace BouncingBall
 
                     System.Drawing.Rectangle playerRec = new System.Drawing.Rectangle((int)player.XPosition, (int)player.YPosition, (int)player.Width, (int)player.Height);
 
-                    Brush brushrec = new SolidBrush(player.Colour);
+                    Brush brushrec = new SolidBrush(player.FillColour);
 
                     g.FillRectangle(brushrec, playerRec);
 
@@ -174,7 +174,7 @@ namespace BouncingBall
 
                     foreach (Polygon poly in polygons)
                     {
-                        Brush brush = new SolidBrush(poly.Colour);
+                        Brush brush = new SolidBrush(poly.FillColour);
 
                         g.FillPolygon(brush, poly.Points);
                     }
@@ -233,7 +233,7 @@ namespace BouncingBall
         /// </summary>
         private void NewPlayer()
         {
-            player = new Player(10, 10, "PINK", 10, 10, 20, 20);
+            player = new Player(10, 10, "PINK", 10, 10, 20, 20, "GREEN");
         }
 
         #region KeyEvents
