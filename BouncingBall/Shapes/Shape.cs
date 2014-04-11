@@ -119,7 +119,7 @@ namespace BouncingBall
                 else
                 {
                     _height = value;
-                }                
+                }
             }
         }
 
@@ -183,7 +183,7 @@ namespace BouncingBall
                 else
                 {
                     _width = value;
-                } 
+                }
             }
         }
 
