@@ -118,7 +118,7 @@ namespace BouncingBall
                 }
                 else
                 {
-                    this._height = value;
+                    _height = value;
                 }                
             }
         }
@@ -161,6 +161,7 @@ namespace BouncingBall
                 _outlineColour = value.ToString();
             }
         }
+
         /// <summary>
         /// Property for the width of the shape.
         ///
@@ -181,7 +182,7 @@ namespace BouncingBall
                 }
                 else
                 {
-                    this._width = value;
+                    _width = value;
                 } 
             }
         }
@@ -200,7 +201,18 @@ namespace BouncingBall
             }
             set
             {
-                this._xPosition = value;
+                if (value > Game.Width + Width)
+                {
+                    _xPosition = Game.Width - Width;
+                }
+                else if (value < 0)
+                {
+                    _xPosition = 0;
+                }
+                else
+                {
+                    _xPosition = value;
+                }
             }
         }
 
@@ -218,7 +230,7 @@ namespace BouncingBall
             }
             set
             {
-                this._xSpeed = value;
+                _xSpeed = value;
             }
         }
 
@@ -236,7 +248,18 @@ namespace BouncingBall
             }
             set
             {
-                this._yPosition = value;
+                if (value > Game.Height + Height)
+                {
+                    _yPosition = Game.Height - Height;
+                }
+                else if (value < 0)
+                {
+                    _yPosition = 0;
+                }
+                else
+                {
+                    _yPosition = value;
+                }
             }
         }
 
@@ -254,7 +277,7 @@ namespace BouncingBall
             }
             set
             {
-                this._ySpeed = value;
+                _ySpeed = value;
             }
         }
 
