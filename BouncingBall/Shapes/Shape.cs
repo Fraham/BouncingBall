@@ -30,13 +30,14 @@ namespace BouncingBall
         /// <param name="outlineColour">The outline colour of the shape.</param>
         public Shape(int xPosition, int yPosition, String fillColour, int xSpeed, int ySpeed, int width, int height, String outlineColour)
         {
-            _xPosition = xPosition;
-            _yPosition = yPosition;
+            XPosition = xPosition;
+            YPosition = yPosition;
+            XSpeed = XSpeed;
+            YSpeed = YSpeed;
+            Width = width;
+            Height = height;
+
             _fillColour = fillColour.ToUpper();
-            _xSpeed = xSpeed;
-            _ySpeed = ySpeed;
-            _width = width;
-            _height = height;
             _outlineColour = outlineColour;
         }
 
