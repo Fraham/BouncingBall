@@ -32,8 +32,8 @@ namespace BouncingBall
         {
             XPosition = xPosition;
             YPosition = yPosition;
-            XSpeed = XSpeed;
-            YSpeed = YSpeed;
+            XSpeed = xSpeed;
+            YSpeed = ySpeed;
             Width = width;
             Height = height;
 
@@ -46,13 +46,14 @@ namespace BouncingBall
         /// </summary>
         public Shape()
         {
-            _xPosition = 0;
-            _yPosition = 0;
+            XPosition = 10;
+            YPosition = 10;
+            XSpeed = 10;
+            YSpeed = 10;
+            Width = 10;
+            Height = 10;
+
             _fillColour = "BLACK";
-            _xSpeed = 0;
-            _ySpeed = 0;
-            _width = 0;
-            _height = 0;
             _outlineColour = "White";
         }
 
@@ -111,7 +112,14 @@ namespace BouncingBall
             }
             set
             {
-                this._height = value;
+                if (value < 0 || value > Game.Height)
+                {
+                    _height = 10;
+                }
+                else
+                {
+                    this._height = value;
+                }                
             }
         }
 
@@ -167,7 +175,14 @@ namespace BouncingBall
             }
             set
             {
-                this._width = value;
+                if (value < 0 || value > Game.Width)
+                {
+                    _width = 10;
+                }
+                else
+                {
+                    this._width = value;
+                } 
             }
         }
 

@@ -27,8 +27,8 @@ namespace BouncingBall
         public List<Polygon> polygons = new List<Polygon>();
 
         private frmBouncingBalls _displayForm;
-        private float _height;
-        private float _width;
+        private static float _height;
+        private static float _width;
         private bool down = false;
         private bool left = false;
         private bool right = false;
@@ -63,7 +63,7 @@ namespace BouncingBall
         /// <summary>
         /// Gets or sets the height of the game area.
         /// </summary>
-        public float Height
+        public static float Height
         {
             get
             {
@@ -71,14 +71,14 @@ namespace BouncingBall
             }
             set
             {
-                this._height = value;
+                _height = value;
             }
         }
 
         /// <summary>
         /// Gets or sets the width of the game area.
         /// </summary>
-        public float Width
+        public static float Width
         {
             get
             {
@@ -86,7 +86,7 @@ namespace BouncingBall
             }
             set
             {
-                this._width = value;
+                _width = value;
             }
         }
 
