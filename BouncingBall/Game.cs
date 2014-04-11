@@ -143,6 +143,8 @@ namespace BouncingBall
             {
                 Bitmap buffer = new Bitmap((int)Width, (int)Height);
 
+                int outlineWidth = 2;
+
                 using (Graphics g = Graphics.FromImage(buffer))
                 {
                     g.Clear(Color.Black);
@@ -156,6 +158,10 @@ namespace BouncingBall
                         Brush brush = new SolidBrush(en.FillColour);
 
                         g.FillEllipse(brush, enemy);
+
+                        Pen pen = new Pen(en.OutlineColour, outlineWidth);
+
+                        g.DrawEllipse(pen, enemy);
                     }
 
                     #endregion Drawing Enemy
@@ -168,6 +174,10 @@ namespace BouncingBall
 
                     g.FillRectangle(brushrec, playerRec);
 
+                    Pen penRec = new Pen(player.OutlineColour, outlineWidth);
+
+                    g.DrawRectangle(penRec, playerRec);
+
                     #endregion Drawing Player
 
                     #region Drawing Polygon
@@ -177,6 +187,10 @@ namespace BouncingBall
                         Brush brush = new SolidBrush(poly.FillColour);
 
                         g.FillPolygon(brush, poly.Points);
+
+                        Pen pen = new Pen(poly.OutlineColour, outlineWidth);
+
+                        g.DrawPolygon(pen, poly.Points);
                     }
 
                     #endregion Drawing Polygon
