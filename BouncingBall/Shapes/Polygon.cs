@@ -163,5 +163,34 @@ namespace BouncingBall
         }
 
         #endregion Width and Height Methods
+
+        /// <summary>
+        /// Moves the polygon one unit depending on the x and y speed. Makes sure the polygon does
+        /// not go outside the game area.
+        /// </summary>
+        /// <param name="gameHeight">The height of the game.</param>
+        /// <param name="gameWidth"> The width of the game.</param>
+        /// <param name="game">      The game.</param>
+        public void Move(float gameWidth, float gameHeight, Game game)
+        {
+            if (XPosition + Width + XSpeed > gameWidth || XPosition + XSpeed < 0)
+            {
+                XSpeed = -XSpeed;
+            }
+
+            if (YPosition + Height + YSpeed > gameHeight || YPosition + YSpeed < 0)
+            {
+                YSpeed = -YSpeed;
+            }
+
+            XPosition += XSpeed;
+            YPosition += YSpeed;
+
+            for (int i = 0; i < _points.Length; i++)
+            {
+                _points[i].X += (int)XSpeed;
+                _points[i].Y += (int)YSpeed;
+            }
+        }
     }
 }
