@@ -51,7 +51,7 @@ namespace BouncingBall
         /// <returns>The height of the polygon.</returns>
         public static float FindHeight(System.Drawing.Point[] points)
         {
-            return FindMaxY(points) - FindMinY(points);
+            return FindMaxX(points) - FindMinX(points);
         }
 
         /// <summary>
@@ -115,12 +115,12 @@ namespace BouncingBall
         /// <returns>The width of the polygon.</returns>
         public static float FindWidth(System.Drawing.Point[] points)
         {
-            return FindMaxX(points) - FindMinX(points);
+            return FindMaxY(points) - FindMinY(points);
         }
 
         private static float FindMaxX(System.Drawing.Point[] points)
         {
-            float max = points[0].Y;
+            float max = points[0].X;
             int length = points.Length;
 
             if (length == 1)
@@ -131,9 +131,9 @@ namespace BouncingBall
             {
                 for (int i = 1; i < length; i++)
                 {
-                    if (points[i].Y > max)
+                    if (points[i].X > max)
                     {
-                        max = points[i].Y;
+                        max = points[i].X;
                     }
                 }
             }
@@ -163,5 +163,34 @@ namespace BouncingBall
         }
 
         #endregion Width and Height Methods
+
+        /// <summary>
+        /// Moves the polygon one unit depending on the x and y speed. Makes sure the polygon does
+        /// not go outside the game area.
+        /// </summary>
+        /// <param name="gameHeight">The height of the game.</param>
+        /// <param name="gameWidth"> The width of the game.</param>
+        /// <param name="game">      The game.</param>
+        public void Move(float gameWidth, float gameHeight, Game game)
+        {
+            if (XPosition + Width + XSpeed > gameWidth || XPosition + XSpeed < 0)
+            {
+                XSpeed = -XSpeed;
+            }
+
+            if (YPosition + Height + YSpeed > gameHeight || YPosition + YSpeed < 0)
+            {
+                YSpeed = -YSpeed;
+            }
+
+            XPosition += XSpeed;
+            YPosition += YSpeed;
+
+            for (int i = 0; i < _points.Length; i++)
+            {
+                _points[i].X += (int)XSpeed;
+                _points[i].Y += (int)YSpeed;
+            }
+        }
     }
 }

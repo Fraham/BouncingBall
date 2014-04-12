@@ -55,7 +55,7 @@ namespace BouncingBall
                 XSpeed = -XSpeed;
             }
 
-            if (YPosition + Height + YSpeed > gameHeight || YPosition + XSpeed < 0)
+            if (YPosition + Height + YSpeed > gameHeight || YPosition + YSpeed < 0)
             {
                 YSpeed = -YSpeed;
             }
