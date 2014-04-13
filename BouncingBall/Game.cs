@@ -26,9 +26,9 @@ namespace BouncingBall
         /// </summary>
         public List<Polygon> polygons = new List<Polygon>();
 
-        private frmBouncingBalls _displayForm;
         private static float _height;
         private static float _width;
+        private frmBouncingBalls _displayForm;
         private bool down = false;
         private bool left = false;
         private bool right = false;
@@ -121,6 +121,9 @@ namespace BouncingBall
             }
         }
 
+        /// <summary>
+        /// Makes all the polygons used in the game.
+        /// </summary>
         private void AddPolygons()
         {
             List<Point> points = new List<Point>();
