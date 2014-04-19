@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace BouncingBall
 {
@@ -168,7 +170,7 @@ namespace BouncingBall
         /// Moves the polygon one unit depending on the x and y speed. Makes sure the polygon does
         /// not go outside the game area.
         /// </summary>
-        /// <param name="game">      The game.</param>
+        /// <param name="game">The game.</param>
         public void Move(Game game)
         {
             if (XPosition + Width + XSpeed > Game.Width || XPosition + XSpeed < 0)

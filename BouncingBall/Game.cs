@@ -143,15 +143,28 @@ namespace BouncingBall
 
             List<Point> points = new List<Point>();
 
-            points.Add(new Point(1, 1));
-            points.Add(new Point(1, 10));
-            points.Add(new Point(20, 10));
-            points.Add(new Point(25, 1));
-
             for (int i = 0; i < 20; i++)
             {
-                polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed), 
+                switch (rand.Next(0, 2))
+                {
+                    case 0:
+                        points.Add(new Point(1, 1));
+                        points.Add(new Point(1, 10));
+                        points.Add(new Point(20, 10));
+                        points.Add(new Point(25, 1));
+                        break;
+
+                    case 1:
+                        points.Add(new Point(1, 1));
+                        points.Add(new Point(1, 30));
+                        points.Add(new Point(30, 1));
+                        break;
+                }
+
+                polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed),
                     (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
+
+                points.Clear();
             }
         }
 
