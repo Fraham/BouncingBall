@@ -241,7 +241,7 @@ namespace BouncingBall
 
                     foreach (Polygon poly in polygons)
                     {
-                        poly.Move(Width, Height, this);
+                        poly.Move(this);
                     }
 
                     player.Move(this);
