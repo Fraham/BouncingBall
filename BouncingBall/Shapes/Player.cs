@@ -25,10 +25,8 @@ namespace BouncingBall
         /// <summary>
         /// Allows the player to move.
         /// </summary>
-        /// <param name="gameWidth"> The width of the game.</param>
-        /// <param name="gameHeight">The height of the game.</param>
         /// <param name="game">      The game being played</param>
-        public void Move(float gameWidth, float gameHeight, Game game)
+        public void Move(Game game)
         {
             if (game.Left)
             {
@@ -43,13 +41,13 @@ namespace BouncingBall
             }
             if (game.Right)
             {
-                if (XPosition + Width + XSpeed < gameWidth)
+                if (XPosition + Width + XSpeed < Game.Width)
                 {
                     XPosition += XSpeed;
                 }
                 else
                 {
-                    XPosition = gameWidth - Width;
+                    XPosition = Game.Width - Width;
                 }
             }
             if (game.Up)
@@ -65,13 +63,13 @@ namespace BouncingBall
             }
             if (game.Down)
             {
-                if (YPosition + Height + YSpeed < gameHeight)
+                if (YPosition + Height + YSpeed < Game.Height)
                 {
                     YPosition += YSpeed;
                 }
                 else
                 {
-                    YPosition = gameHeight - Height;
+                    YPosition = Game.Height - Height;
                 }
             }
         }

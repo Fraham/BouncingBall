@@ -47,9 +47,9 @@ namespace BouncingBall
 
             _displayForm = display;
 
-            AddEnemies();
+            AddEnemies(5, 40, 2, 20);
 
-            NewPlayer();
+            AddPlayer();
 
             AddPolygons();
 
@@ -59,6 +59,8 @@ namespace BouncingBall
 
             gameThread.Start();
         }
+
+        #region Properties
 
         /// <summary>
         /// Gets or sets the height of the game area.
@@ -90,6 +92,8 @@ namespace BouncingBall
             }
         }
 
+        #endregion Properties
+
         /// <summary>
         /// Removes a enemy from the game.
         /// </summary>
@@ -106,19 +110,28 @@ namespace BouncingBall
             }
         }
 
+        #region Adding Shapes
+
         /// <summary>
         /// Makes all the balls used in the game.
         /// </summary>
-        private void AddEnemies()
+        private void AddEnemies(int minSize, int maxSize, int minSpeed, int maxSpeed)
         {
             var rand = new Random();
 
-            int maxSize = 40;
-
             for (int i = 0; i < 20; i++)
             {
-                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize), "PURPLE"));
+                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "DARKRED",
+                    rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed), rand.Next(minSize, maxSize), "RED"));
             }
+        }
+
+        /// <summary>
+        /// Creates a new Player.
+        /// </summary>
+        private void AddPlayer()
+        {
+            player = new Player(10, 10, "DARKGREEN", 10, 10, 20, 20, "GREEN");
         }
 
         /// <summary>
@@ -128,14 +141,17 @@ namespace BouncingBall
         {
             List<Point> points = new List<Point>();
 
-            points.Add(new Point(50, 50));
-            points.Add(new Point(100, 25));
-            points.Add(new Point(200, 5));
-            points.Add(new Point(250, 50));
-            points.Add(new Point(300, 100));
+            points.Add(new Point(1, 1));
+            points.Add(new Point(1, 10));
+            points.Add(new Point(20, 10));
+            points.Add(new Point(25, 1));
 
-            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "Orange", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "BLUE"));
+            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
         }
+
+        #endregion Adding Shapes
+
+        #region Running and Drawing
 
         /// <summary>
         /// Draws all the balls for each game tick.
@@ -203,7 +219,7 @@ namespace BouncingBall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error - why");
+                MessageBox.Show("Unable to draw the shapes", _displayForm.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex.ToString());
             }
         }
@@ -219,15 +235,15 @@ namespace BouncingBall
                 {
                     foreach (Enemy en in enemies)
                     {
-                        en.Move(Width, Height, this);
+                        en.Move(this);
                     }
 
                     foreach (Polygon poly in polygons)
                     {
-                        poly.Move(Width, Height, this);
+                        poly.Move(this);
                     }
 
-                    player.Move(Width, Height, this);
+                    player.Move(this);
 
                     Thread drawThread = new Thread(new ThreadStart(DrawIt));
 
@@ -240,18 +256,12 @@ namespace BouncingBall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error- fucking hell");
+                MessageBox.Show("Unable to continue the thread.", _displayForm.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex.ToString());
             }
         }
 
-        /// <summary>
-        /// Creates a new Player.
-        /// </summary>
-        private void NewPlayer()
-        {
-            player = new Player(10, 10, "PINK", 10, 10, 20, 20, "GREEN");
-        }
+        #endregion Running and Drawing
 
         #region KeyEvents
 
