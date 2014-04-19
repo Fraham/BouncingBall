@@ -289,14 +289,14 @@ namespace BouncingBall
         /// </summary>
         /// <param name="gameHeight">The height of the game.</param>
         /// <param name="gameWidth"> The width of the game.</param>
-        public void Move(float gameWidth, float gameHeight)
+        public void Move()
         {
-            if (XPosition + Width + XSpeed >= gameWidth || XPosition + XSpeed <= 0)
+            if (XPosition + Width + XSpeed >= Game.Width || XPosition + XSpeed <= 0)
             {
                 XSpeed = -XSpeed;
             }
 
-            if (YPosition + Height + YSpeed >= gameHeight || YPosition + YSpeed <= 0)
+            if (YPosition + Height + YSpeed >= Game.Height || YPosition + YSpeed <= 0)
             {
                 YSpeed = -YSpeed;
             }
