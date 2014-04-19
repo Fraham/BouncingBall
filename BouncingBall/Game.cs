@@ -119,11 +119,12 @@ namespace BouncingBall
         {
             var rand = new Random();
 
-            int maxSize = 40;
+            int minSize = 5, maxSize = 40, minSpeed = 2, maxSpeed = 20;
 
             for (int i = 0; i < 20; i++)
             {
-                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "DARKRED", rand.Next(20), rand.Next(20), rand.Next(maxSize), "RED"));
+                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "DARKRED",
+                    rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed), rand.Next(minSize, maxSize), "RED"));
             }
         }
 
