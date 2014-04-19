@@ -145,7 +145,9 @@ namespace BouncingBall
 
             for (int i = 0; i < 20; i++)
             {
-                switch (rand.Next(0, 2))
+                #region Polygon Types
+
+                switch (rand.Next(0, 3))
                 {
                     case 0:
                         points.Add(new Point(1, 1));
@@ -159,6 +161,16 @@ namespace BouncingBall
                         points.Add(new Point(1, 30));
                         points.Add(new Point(30, 1));
                         break;
+
+                    case 2:
+                        points.Add(new Point(3, 1));
+                        points.Add(new Point(11, 1));
+                        points.Add(new Point(13, 12));
+                        points.Add(new Point(7, 16));
+                        points.Add(new Point(1, 12));
+                        break;
+
+                #endregion Polygon Types
                 }
 
                 polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed),

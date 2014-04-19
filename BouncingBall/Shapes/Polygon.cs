@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 
 namespace BouncingBall
 {
@@ -10,6 +8,8 @@ namespace BouncingBall
     public class Polygon : Shape
     {
         private System.Drawing.Point[] _points;
+
+        private int _x = 0;
 
         /// <summary>
         /// Creating an instance of a polygon.
