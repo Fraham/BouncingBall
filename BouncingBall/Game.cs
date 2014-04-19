@@ -244,7 +244,7 @@ namespace BouncingBall
                         poly.Move(Width, Height, this);
                     }
 
-                    player.Move(Width, Height, this);
+                    player.Move(this);
 
                     Thread drawThread = new Thread(new ThreadStart(DrawIt));
 
