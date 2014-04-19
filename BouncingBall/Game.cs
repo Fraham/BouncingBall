@@ -60,6 +60,8 @@ namespace BouncingBall
             gameThread.Start();
         }
 
+        #region Properties
+
         /// <summary>
         /// Gets or sets the height of the game area.
         /// </summary>
@@ -90,6 +92,8 @@ namespace BouncingBall
             }
         }
 
+        #endregion Properties
+
         /// <summary>
         /// Removes a enemy from the game.
         /// </summary>
@@ -105,6 +109,8 @@ namespace BouncingBall
                 MessageBox.Show("Unable to remove the enemy", _displayForm.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        #region Adding Shapes
 
         /// <summary>
         /// Makes all the balls used in the game.
@@ -143,6 +149,10 @@ namespace BouncingBall
 
             polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
         }
+
+        #endregion Adding Shapes
+
+        #region Running and Drawing
 
         /// <summary>
         /// Draws all the balls for each game tick.
@@ -251,6 +261,8 @@ namespace BouncingBall
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        #endregion Running and Drawing
 
         #region KeyEvents
 
