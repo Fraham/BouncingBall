@@ -41,13 +41,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpStart.ColumnCount = 2;
             this.tlpStart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpStart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tlpStart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpStart.Controls.Add(this.btnStart, 0, 0);
             this.tlpStart.Controls.Add(this.btnOptions, 1, 0);
             this.tlpStart.Location = new System.Drawing.Point(0, 0);
             this.tlpStart.Name = "tlpStart";
             this.tlpStart.RowCount = 1;
-            this.tlpStart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpStart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpStart.Size = new System.Drawing.Size(283, 265);
             this.tlpStart.TabIndex = 0;
             // 
@@ -62,7 +62,7 @@
             // 
             // btnOptions
             // 
-            this.btnOptions.Location = new System.Drawing.Point(146, 3);
+            this.btnOptions.Location = new System.Drawing.Point(144, 3);
             this.btnOptions.Name = "btnOptions";
             this.btnOptions.Size = new System.Drawing.Size(75, 23);
             this.btnOptions.TabIndex = 0;
