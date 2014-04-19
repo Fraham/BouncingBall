@@ -9,8 +9,6 @@ namespace BouncingBall
     {
         private System.Drawing.Point[] _points;
 
-        private int _x = 0;
-
         /// <summary>
         /// Creating an instance of a polygon.
         /// </summary>
