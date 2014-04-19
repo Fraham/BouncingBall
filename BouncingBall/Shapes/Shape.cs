@@ -287,8 +287,6 @@ namespace BouncingBall
         /// Moves the ball one unit depending on the x and y speed. Makes sure the ball does not go
         /// outside the game area.
         /// </summary>
-        /// <param name="gameHeight">The height of the game.</param>
-        /// <param name="gameWidth"> The width of the game.</param>
         public void Move()
         {
             if (XPosition + Width + XSpeed >= Game.Width || XPosition + XSpeed <= 0)

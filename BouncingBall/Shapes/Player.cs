@@ -25,8 +25,6 @@ namespace BouncingBall
         /// <summary>
         /// Allows the player to move.
         /// </summary>
-        /// <param name="gameWidth"> The width of the game.</param>
-        /// <param name="gameHeight">The height of the game.</param>
         /// <param name="game">      The game being played</param>
         public void Move(Game game)
         {
