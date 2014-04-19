@@ -49,7 +49,7 @@ namespace BouncingBall
 
             AddEnemies();
 
-            NewPlayer();
+            AddPlayer();
 
             AddPolygons();
 
@@ -119,6 +119,14 @@ namespace BouncingBall
             {
                 enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "DARKRED", rand.Next(20), rand.Next(20), rand.Next(maxSize), "RED"));
             }
+        }
+
+        /// <summary>
+        /// Creates a new Player.
+        /// </summary>
+        private void AddPlayer()
+        {
+            player = new Player(10, 10, "DARKGREEN", 10, 10, 20, 20, "GREEN");
         }
 
         /// <summary>
@@ -242,14 +250,6 @@ namespace BouncingBall
                 MessageBox.Show("error- fucking hell");
                 Console.WriteLine(ex.ToString());
             }
-        }
-
-        /// <summary>
-        /// Creates a new Player.
-        /// </summary>
-        private void NewPlayer()
-        {
-            player = new Player(10, 10, "PINK", 10, 10, 20, 20, "GREEN");
         }
 
         #region KeyEvents
