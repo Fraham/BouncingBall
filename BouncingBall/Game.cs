@@ -146,7 +146,11 @@ namespace BouncingBall
             points.Add(new Point(20, 10));
             points.Add(new Point(25, 1));
 
-            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
+            for (int i = 0; i < 20; i++)
+            {
+                polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, 
+                    (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
+            }
         }
 
         #endregion Adding Shapes
