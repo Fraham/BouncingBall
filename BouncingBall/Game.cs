@@ -128,13 +128,12 @@ namespace BouncingBall
         {
             List<Point> points = new List<Point>();
 
-            points.Add(new Point(50, 50));
-            points.Add(new Point(100, 25));
-            points.Add(new Point(200, 5));
-            points.Add(new Point(250, 50));
-            points.Add(new Point(300, 100));
+            points.Add(new Point(1, 1));
+            points.Add(new Point(1, 10));
+            points.Add(new Point(20, 10));
+            points.Add(new Point(25, 1));
 
-            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "Orange", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "BLUE"));
+            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
         }
 
         /// <summary>
