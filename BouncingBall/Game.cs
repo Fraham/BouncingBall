@@ -220,7 +220,7 @@ namespace BouncingBall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error - why");
+                MessageBox.Show("Unable to draw the shapes", _displayForm.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex.ToString());
             }
         }
@@ -257,7 +257,7 @@ namespace BouncingBall
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error- fucking hell");
+                MessageBox.Show("Unable to continue the thread.", _displayForm.Text + " - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex.ToString());
             }
         }
