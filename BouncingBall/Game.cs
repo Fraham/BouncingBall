@@ -51,7 +51,7 @@ namespace BouncingBall
 
             AddPlayer();
 
-            AddPolygons();
+            AddPolygons(2, 20);
 
             Thread gameThread = new Thread(new ThreadStart(GameRunning));
 
@@ -137,16 +137,47 @@ namespace BouncingBall
         /// <summary>
         /// Makes all the polygons used in the game.
         /// </summary>
-        private void AddPolygons()
+        private void AddPolygons(int minSpeed, int maxSpeed)
         {
+            var rand = new Random();
+
             List<Point> points = new List<Point>();
 
-            points.Add(new Point(1, 1));
-            points.Add(new Point(1, 10));
-            points.Add(new Point(20, 10));
-            points.Add(new Point(25, 1));
+            for (int i = 0; i < 20; i++)
+            {
+                #region Polygon Types
 
-            polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
+                switch (rand.Next(0, 3))
+                {
+                    case 0:
+                        points.Add(new Point(1, 1));
+                        points.Add(new Point(1, 10));
+                        points.Add(new Point(20, 10));
+                        points.Add(new Point(25, 1));
+                        break;
+
+                    case 1:
+                        points.Add(new Point(1, 1));
+                        points.Add(new Point(1, 30));
+                        points.Add(new Point(30, 1));
+                        break;
+
+                    case 2:
+                        points.Add(new Point(3, 1));
+                        points.Add(new Point(11, 1));
+                        points.Add(new Point(13, 12));
+                        points.Add(new Point(7, 16));
+                        points.Add(new Point(1, 12));
+                        break;
+
+                #endregion Polygon Types
+                }
+
+                polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed),
+                    (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
+
+                points.Clear();
+            }
         }
 
         #endregion Adding Shapes

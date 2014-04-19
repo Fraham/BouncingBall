@@ -9,6 +9,8 @@ namespace BouncingBall
     {
         private System.Drawing.Point[] _points;
 
+        private int _x = 0;
+
         /// <summary>
         /// Creating an instance of a polygon.
         /// </summary>
@@ -168,7 +170,7 @@ namespace BouncingBall
         /// Moves the polygon one unit depending on the x and y speed. Makes sure the polygon does
         /// not go outside the game area.
         /// </summary>
-        /// <param name="game">      The game.</param>
+        /// <param name="game">The game.</param>
         public void Move(Game game)
         {
             if (XPosition + Width + XSpeed > Game.Width || XPosition + XSpeed < 0)
