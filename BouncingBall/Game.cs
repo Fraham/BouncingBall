@@ -117,7 +117,7 @@ namespace BouncingBall
 
             for (int i = 0; i < 20; i++)
             {
-                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "GREEN", rand.Next(20), rand.Next(20), rand.Next(maxSize), "PURPLE"));
+                enemies.Add(new Enemy(rand.Next((int)Width - maxSize), rand.Next((int)Height - maxSize), "DARKRED", rand.Next(20), rand.Next(20), rand.Next(maxSize), "RED"));
             }
         }
 
