@@ -236,7 +236,7 @@ namespace BouncingBall
                 {
                     foreach (Enemy en in enemies)
                     {
-                        en.Move(Width, Height, this);
+                        en.Move(this);
                     }
 
                     foreach (Polygon poly in polygons)
