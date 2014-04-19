@@ -51,7 +51,7 @@ namespace BouncingBall
 
             AddPlayer();
 
-            AddPolygons();
+            AddPolygons(2, 20);
 
             Thread gameThread = new Thread(new ThreadStart(GameRunning));
 
@@ -137,8 +137,10 @@ namespace BouncingBall
         /// <summary>
         /// Makes all the polygons used in the game.
         /// </summary>
-        private void AddPolygons()
+        private void AddPolygons(int minSpeed, int maxSpeed)
         {
+            var rand = new Random();
+
             List<Point> points = new List<Point>();
 
             points.Add(new Point(1, 1));
@@ -148,7 +150,7 @@ namespace BouncingBall
 
             for (int i = 0; i < 20; i++)
             {
-                polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", 10, 10, 
+                polygons.Add(new Polygon((int)Polygon.FindMinX(points.ToArray()), (int)Polygon.FindMinY(points.ToArray()), "LIGHTYELLOW", rand.Next(minSpeed, maxSpeed), rand.Next(minSpeed, maxSpeed), 
                     (int)Polygon.FindHeight(points.ToArray()), (int)Polygon.FindWidth(points.ToArray()), points.ToArray(), "YElLOW"));
             }
         }
