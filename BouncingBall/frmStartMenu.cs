@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace BouncingBall
 {
+    /// <summary>
+    /// The start menu for the game.
+    /// </summary>
     public partial class frmStartMenu : Form
     {
+        /// <summary>
+        /// Makes a start menu.
+        /// </summary>
         public frmStartMenu()
         {
             InitializeComponent();
