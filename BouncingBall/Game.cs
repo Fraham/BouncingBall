@@ -47,7 +47,7 @@ namespace BouncingBall
 
             _displayForm = display;
 
-            AddEnemies();
+            AddEnemies(5, 40, 2, 20);
 
             AddPlayer();
 
@@ -115,11 +115,9 @@ namespace BouncingBall
         /// <summary>
         /// Makes all the balls used in the game.
         /// </summary>
-        private void AddEnemies()
+        private void AddEnemies(int minSize, int maxSize, int minSpeed, int maxSpeed)
         {
             var rand = new Random();
-
-            int minSize = 5, maxSize = 40, minSpeed = 2, maxSpeed = 20;
 
             for (int i = 0; i < 20; i++)
             {
