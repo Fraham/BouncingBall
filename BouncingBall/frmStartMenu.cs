@@ -25,7 +25,23 @@ namespace BouncingBall
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            Boolean found = false;
 
+            foreach (Form OpenForms in Application.OpenForms)
+            {
+                if (OpenForms.Name == "frmBouncingBalls")
+                {
+                    found = true;
+                    OpenForms.Focus();
+                }
+            }
+
+            if(!found)
+            {
+                frmBouncingBalls frmBB = new frmBouncingBalls();
+
+                frmBB.Show();
+            }
         }
 
         private void btnOptions_Click(object sender, EventArgs e)
