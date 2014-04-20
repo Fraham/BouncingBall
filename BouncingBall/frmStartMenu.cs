@@ -30,7 +30,9 @@ namespace BouncingBall
 
         private void btnOptions_Click(object sender, EventArgs e)
         {
+            frmOptions frmO = new frmOptions();
 
+            frmO.ShowDialog();
         }
     }
 }
