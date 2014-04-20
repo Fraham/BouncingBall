@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStartMenu.Designer.cs">
+      <DependentUpon>frmStartMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shapes\Ball.cs" />
     <Compile Include="Shapes\Enemy.cs" />
     <Compile Include="Shapes\Friendly.cs" />
@@ -63,6 +75,9 @@
     <Compile Include="Shapes\Shape.cs" />
     <EmbeddedResource Include="frmBouncingBall.resx">
       <DependentUpon>frmBouncingBall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStartMenu.resx">
+      <DependentUpon>frmStartMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
