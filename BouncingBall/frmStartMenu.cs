@@ -46,6 +46,20 @@ namespace BouncingBall
 
         private void btnOptions_Click(object sender, EventArgs e)
         {
+            Form form = null;
+            foreach (Form OpenForms in Application.OpenForms)
+            {
+                if (OpenForms.Name == "frmBouncingBalls")
+                {
+                    form = OpenForms;
+                }
+            }
+
+            if (form != null)
+            {
+                form.Close();
+            }
+
             frmOptions frmO = new frmOptions();
 
             frmO.ShowDialog();
