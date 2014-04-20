@@ -63,6 +63,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start Game";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnOptions
             // 
@@ -76,6 +77,7 @@
             this.btnOptions.TabIndex = 0;
             this.btnOptions.Text = "Options";
             this.btnOptions.UseVisualStyleBackColor = true;
+            this.btnOptions.Click += new System.EventHandler(this.btnOptions_Click);
             // 
             // frmStartMenu
             // 
